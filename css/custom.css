@@ -128,7 +128,7 @@ body.modal-open {
 }
 
 #entriesContainer {
-	/*max-height: 810px;*/
+	max-height: 810px;
 	min-height: 110px;
 	overflow-y: auto;
 }
