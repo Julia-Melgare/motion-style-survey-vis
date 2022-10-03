@@ -10,14 +10,14 @@
  			   "type": "category-entry",
  			   "title": "face",
  			   "description": "Face",
- 			   "content": "<span class=\"content-entry-icon\"><img src=\"images/face-fill.svg\"></span>"
+ 			   "content": "<span class=\"content-entry-icon\"><img src=\"images/face.svg\"></span>"
  		   },
  		   
  		   {
  			   "type": "category-entry",
  			   "title": "body",
  			   "description": "Body",
- 			   "content": "<span class=\"content-entry-icon\"><img src=\"images/body-fill.svg\"></span>"
+ 			   "content": "<span class=\"content-entry-icon\"><img src=\"images/body.svg\"></span>"
  		   }
  		]
  	}
