@@ -6,7 +6,7 @@
         "authors": "Daniel Holden, Jun Saito, Taku Komura",
         "reference": "Holden, Daniel, Jun Saito, and Taku Komura. <i>A deep learning framework for character motion synthesis and editing.</i> ACM Transactions on Graphics (TOG)  35.4 (2016): 1-11.",
         "url": "https://doi.org/10.1145/2897824.2925975",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Cosker2011",
@@ -15,7 +15,7 @@
         "authors": "Darren Cosker; Eva Krumhuber; Adrian Hilton",
         "reference": "Cosker, Darren, Eva Krumhuber, and Adrian Hilton. <i>A FACS valid 3D dynamic action unit database with applications to 3D dynamic morphable facial modeling.</i> 2011 international conference on computer vision . IEEE, 2011.",
         "url": "https://doi.org/10.1109/ICCV.2011.6126510",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Queiroz2015",
@@ -24,7 +24,7 @@
         "authors": "R. B. Queiroz, A. Braun and S. R. Musse",
         "reference": "Queiroz, Rossana Baptista, Adriana Braun, and Soraia Raupp Musse. <i>An adaptive methodology for facial expression transfer.</i> 2015 14th Brazilian Symposium on Computer Games and Digital Entertainment (SBGames) . IEEE, 2015.",
         "url": "https://doi.org/10.1109/SBGames.2015.10",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Chin2013",
@@ -33,7 +33,7 @@
         "authors": "Seongah Chin, Chung Yeon Lee, Jaedong Lee",
         "reference": "Chin, Seongah, Chung Yeon Lee, and Jaedong Lee. <i>An automatic method for motion capture-based exaggeration of facial expressions with personality types.</i> Virtual Reality 17.3 (2013): 219-237.",
         "url": "https://doi.org/10.1007/s10055-013-0227-8",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Wen2021",
@@ -42,7 +42,7 @@
         "authors": "Yu-Hui Wen, Zhipeng Yang, Hongbo Fu, Lin Gao, Yanan Sun, Yong-Jin Liu",
         "reference": "Wen, Yu-Hui, et al. <i>Autoregressive stylized motion synthesis with generative flow.</i> Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2021.",
         "url": "https://doi.org/10.1109/CVPR46437.2021.01340",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Chen2017",
@@ -51,7 +51,7 @@
         "authors": "Chaona Chen, Rachael E. Jack",
         "reference": "Chen, Chaona, and Rachael E. Jack. <i>Discovering cultural differences (and similarities) in facial expressions of emotion.</i> Current opinion in psychology 17 (2017): 61-66.",
         "url": "https://doi.org/10.1016/j.copsyc.2017.06.010",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Amaya1996",
@@ -60,7 +60,7 @@
         "authors": "Amaya, Kenji and Bruderlin, Armin and Calvert, Tom",
         "reference": "Amaya, Kenji, Armin Bruderlin, and Tom Calvert. <i>Emotion from motion.</i> Graphics interface . Vol. 96. 1996.",
         "url": "https://doi.org/10.5555/241020.241079",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Etemad2016",
@@ -69,7 +69,7 @@
         "authors": "S. Ali Etemad; Ali Arya",
         "reference": "Etemad, S. Ali, and Ali Arya. <i>Expert-driven perceptual features for modeling style and affect in human motion.</i> IEEE Transactions on Human-Machine Systems  46.4 (2016): 534-545.",
         "url": "https://doi.org/10.1109/THMS.2016.2537760",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Shin2009",
@@ -78,7 +78,7 @@
         "authors": "Hyun Joon Shin, Yunjin Lee",
         "reference": "Shin, Hyun Joon, and Yunjin Lee. <i>Expression synthesis and transfer in parameter spaces.</i> Computer Graphics Forum. Vol. 28. No. 7. Oxford, UK: Blackwell Publishing Ltd, 2009.",
         "url": "https://doi.org/10.1111/j.1467-8659.2009.01560.x",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Etemad2014",
@@ -87,7 +87,7 @@
         "authors": "S. Ali Etemad; Ali Arya",
         "reference": "Etemad, S. Ali, and Ali Arya. <i>Extracting movement, posture, and temporal style features from human motion.</i> Biologically Inspired Cognitive Architectures  7 (2014): 15-25.",
         "url": "https://doi.org/10.1016/j.bica.2013.10.001",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Okamoto2014",
@@ -96,7 +96,7 @@
         "authors": "T. Okamoto and T. Shiratori and M. Glisson and K. Yamane and S. Kudoh and K. Ikeuchi",
         "reference": "Okamoto, Takahiro, et al. <i>Extraction of person-specific motion style based on a task model and imitation by humanoid robot.</i> 2014 IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE, 2014.",
         "url": "https://doi.org/10.1109/IROS.2014.6942732",
-        "categories": []
+        "categories": ["body"]
     },
 
     {
@@ -106,7 +106,7 @@
         "authors": "Mason, Ian and Starke, Sebastian and Zhang, He and Bilen, Hakan and Komura, Taku",
         "reference": "Mason, Ian, et al. <i>Few‐shot learning of homogeneous human locomotion styles.</i> Computer Graphics Forum. Vol. 37. No. 7. 2018.",
         "url": "https://doi.org/10.1111/cgf.13555",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Unuma1995",
@@ -115,7 +115,7 @@
         "authors": "Unuma, Munetoshi and Anjyo, Ken and Takeuchi, Ryozo",
         "reference": "Unuma, Munetoshi, Ken Anjyo, and Ryozo Takeuchi. <i>Fourier principles for emotion-based human figure animation.</i> Proceedings of the 22nd annual conference on Computer graphics and interactive techniques. 1995.",
         "url": "https://doi.org/10.1145/218380.218419",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Wampler2014",
@@ -124,7 +124,7 @@
         "authors": "Wampler, Kevin and Popović, Zoran and Popović, Jovan",
         "reference": "Wampler, Kevin, Zoran Popović, and Jovan Popović. <i>Generalizing locomotion style to new animals with inverse optimal regression.</i> ACM Transactions on Graphics (TOG) 33.4 (2014): 1-11. 11.",
         "url": "https://doi.org/10.1145/2601097.2601192",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Wang2004",
@@ -133,7 +133,7 @@
         "authors": "Yang Wang,Xiaolei Huang,Chan-Su Lee,Song Zhang,Zhiguo Li,Dimitris Samaras,Dimitris Metaxas,Ahmed Elgammal,Peisen Huang",
         "reference": "Wang, Yang, et al. <i>High resolution acquisition, learning and transfer of dynamic 3‐D facial expressions.</i> Computer Graphics Forum . Vol. 23. No. 3. Oxford, UK and Boston, USA: Blackwell Publishing, Inc, 2004.",
         "url": "https://doi.org/10.1111/j.1467-8659.2004.00800.x",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Melgare2019",
@@ -142,7 +142,7 @@
         "authors": "Julia Kubiak Melgare; Soraia Raupp Musse; Nathan Rainieri Schneider; Rossana Baptista Queiroz",
         "reference": "Melgare, Julia Kubiak, et al. <i>Investigating emotion style in human faces and avatars.</i> 2019 18th Brazilian Symposium on Computer Games and Digital Entertainment (SBGames) . IEEE, 2019.",
         "url": "https://doi.org/10.1109/SBGames.2019.00025",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Melgare2022",
@@ -151,7 +151,7 @@
         "authors": "Julia Kubiak Melgare; Rossana Baptista Queiroz; Soraia Raupp Musse",
         "reference": "Melgare, Julia Kubiak, Rossana Baptista Queiroz, and Soraia Raupp Musse. <i>Investigating Emotion Style in Human Faces Using Clustering Methods.</i> IEEE Computer Graphics and Applications  42.4 (2022): 52-71.",
         "url": "https://doi.org/10.1109/MCG.2021.3125904",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Torresani2006",
@@ -160,7 +160,7 @@
         "authors": "Torresani, L.; Hackney, P.; Bregler, C.",
         "reference": "Torresani, Lorenzo, Peggy Hackney, and Christoph Bregler. <i>Learning motion style synthesis from perceptual observations.</i> Advances in neural information processing systems  19 (2006).",
         "url": "https://doi.org/10.5555/2976456.2976631",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Liu2005",
@@ -169,7 +169,7 @@
         "authors": "Liu, C. Karen and Hertzmann, Aaron and Popović, Zoran",
         "reference": "Liu, C. Karen, Aaron Hertzmann, and Zoran Popović. <i>Learning physics-based motion style with nonlinear inverse optimization.</i> ACM Transactions on Graphics (TOG)  24.3 (2005): 1071-1081.",
         "url": "https://doi.org/10.1145/1073204.1073314",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Ma2010",
@@ -178,7 +178,7 @@
         "authors": "Ma, Wanli and Xia, Shihong and Hodgins, Jessica K. and Yang, Xiao and Li, Chunpeng and Wang, Zhaoqi",
         "reference": "Ma, Wanli, et al. <i>Modeling style and variation in human motion.</i> Proceedings of the 2010 ACM SIGGRAPH/Eurographics Symposium on Computer Animation . 2010.",
         "url": "https://doi.org/10.5555/1921427.1921431",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Jang2022",
@@ -187,7 +187,7 @@
         "authors": "Deok-Kyeong Jang, Soomin Park, Sung-Hee Lee",
         "reference": "Jang, Deok-Kyeong, Soomin Park, and Sung-Hee Lee. <i>Motion Puzzle: Arbitrary Motion Style Transfer by Body Part.</i> ACM Transactions on Graphics (TOG) (2022).",
         "url": "https://doi.org/10.1145/3516429",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Abdul-Massih2017",
@@ -196,7 +196,7 @@
         "authors": "Abdul-Massih, M. and Yoo, I. and Benes, B.",
         "reference": "Abdul‐Massih, Michel, Innfarn Yoo, and Bedrich Benes. <i>Motion style retargeting to characters with different morphologies.</i> Computer Graphics Forum. Vol. 36. No. 6. 2017.",
         "url": "https://doi.org/10.1111/cgf.12860",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Kilias2017",
@@ -205,7 +205,7 @@
         "authors": "Alex Kilias, Christos Mousas",
         "reference": "Kilias, Alex, and Christos Mousas. <i>Motion Style Transfer in Correlated Motion Spaces.</i> International Conference on Augmented Reality, Virtual Reality and Computer Graphics . Springer, Cham, 2017.",
         "url": "https://doi.org/10.1007/978-3-319-60922-5_18",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Wang2007",
@@ -214,7 +214,7 @@
         "authors": "Wang, Jack M and Fleet, David J and Hertzmann, Aaron",
         "reference": "Wang, Jack M., David J. Fleet, and Aaron Hertzmann. <i>Multifactor Gaussian process models for style-content separation.</i> Proceedings of the 24th international conference on Machine learning. 2007.",
         "url": "https://doi.org/10.1145/1273496.1273619",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Kim2019",
@@ -223,7 +223,7 @@
         "authors": "Kim, Hyeongwoo and Elgharib, Mohamed and Zollhöfer, Michael and Seidel, Hans-Peter and Beeler, Thabo and Richardt, Christian and Theobalt, Christian",
         "reference": "Kim, Hyeongwoo, et al. <i>Neural style-preserving visual dubbing.</i> ACM Transactions on Graphics (TOG) 38.6 (2019): 1-13.",
         "url": "https://doi.org/10.1145/3355089.3356500",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Wilson1999",
@@ -232,7 +232,7 @@
         "authors": "A.D. Wilson; A.F. Bobick",
         "reference": "Wilson, Andrew D., and Aaron F. Bobick. <i>Parametric hidden markov models for gesture recognition.</i> IEEE transactions on pattern analysis and machine intelligence 21.9 (1999): 884-9",
         "url": "https://doi.org/10.1109/34.790429",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Yu2012",
@@ -241,7 +241,7 @@
         "authors": "Hui Yu, Oliver G. B. Garrod, Philippe G.Schyns",
         "reference": "Yu, Hui, Oliver GB Garrod, and Philippe G. Schyns. <i>Perception-driven facial expression synthesis.</i> Computers & Graphics 36.3 (2012): 152-162.",
         "url": "https://doi.org/10.1016/j.cag.2011.12.002",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Kim2019_2",
@@ -250,7 +250,7 @@
         "authors": "Hye Ji Kim, Sung-Hee Lee",
         "reference": "Kim, Hye Ji, and Sung-Hee Lee. <i>Perceptual Characteristics by Motion Style Category.</i> Eurographics (Short Papers). 2019.",
         "url": "https://doi.org/10.2312/egs.20191000",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Braun2018",
@@ -259,7 +259,7 @@
         "authors": "Adriana Braun, Rossana Queiroz, Wonsook Lee, Bruno Feijo, Soraia Raupp Musse",
         "reference": "Braun, Adriana, et al. <i>Persona: A method for facial analysis in video and application in entertainment.</i> Computers in Entertainment (CIE)  16.3 (2018): 1-19.",
         "url": "https://doi.org/10.1145/3236495",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Xia2015",
@@ -268,7 +268,7 @@
         "authors": "Xia, Shihong and Wang, Congyi and Chai, Jinxiang and Hodgins, Jessica",
         "reference": "Xia, Shihong, et al. <i>Realtime style transfer for unlabeled heterogeneous human motion.</i> ACM Transactions on Graphics (TOG) 34.4 (2015): 1-10.",
         "url": "https://doi.org/10.1145/2766999",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Gleicher1998",
@@ -277,7 +277,7 @@
         "authors": "Michael Gleicher ",
         "reference": "Gleicher, Michael. <i>Retargetting motion to new characters.</i> Proceedings of the 25th annual conference on Computer graphics and interactive techniques. 1998.",
         "url": "https://doi.org/10.1145/280814.280820",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Elgammal2004",
@@ -286,7 +286,7 @@
         "authors": "A. Elgammal and Chan-Su Lee",
         "reference": "Elgammal, Ahmed, and Chan-Su Lee. <i>Separating style and content on a nonlinear manifold.</i> Proceedings of the 2004 IEEE Computer Society Conference on Computer Vision and Pattern Recognition, 2004. CVPR 2004.. Vol. 1. IEEE, 2004.",
         "url": "https://doi.org/10.1109/CVPR.2004.1315070",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Yumer2016",
@@ -295,7 +295,7 @@
         "authors": "M. Ersin Yumer, Niloy J. Mitra",
         "reference": "Yumer, M. Ersin, and Niloy J. Mitra. <i>Spectral style transfer for human motion between independent actions.</i> ACM Transactions on Graphics (TOG) 35.4 (2016): 1-8.",
         "url": "https://doi.org/10.1145/2897824.2925955",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Costigan2015",
@@ -304,7 +304,7 @@
         "authors": "Timothy Costigan, Rachel McDonnell",
         "reference": "Costigan, Timothy, and Rachel McDonnell. <i>Speech independent emotion transfer for virtual faces.</i> Proceedings of the Facial Analysis and Animation. 2015. 1-2.",
         "url": "https://doi.org/10.1145/2813852.2813862",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Shapiro2006",
@@ -313,7 +313,7 @@
         "authors": "Ari Shapiro, Yong Cao, Petros Faloutsos",
         "reference": "Shapiro, Ari, Yong Cao, and Petros Faloutsos. <i>Style components.</i> Graphics interface. Vol. 2006. 2006.",
         "url": "https://doi.org/10.1145/1143079.1143086",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Salman2020",
@@ -322,7 +322,7 @@
         "authors": "Ali N. Salman, Carlos Busso",
         "reference": "Salman, Ali N., and Carlos Busso. <i>Style extractor for facial expression recognition in the presence of speech.</i> 2020 IEEE International Conference on Image Processing (ICIP). IEEE, 2020.",
         "url": "https://doi.org/10.1109/ICIP40778.2020.9191330",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Ma2009",
@@ -331,7 +331,7 @@
         "authors": "Xiaohan Ma, Binh Huy Le, Zhigang Deng",
         "reference": "Ma, Xiaohan, Binh Huy Le, and Zhigang Deng. <i>Style learning and transferring for facial animation editing.</i> Proceedings of the 2009 ACM SIGGRAPH/Eurographics Symposium on Computer Animation . 2009.",
         "url": "https://doi.org/10.1145/1599470.1599486",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Brand2000",
@@ -340,7 +340,7 @@
         "authors": "Matthew Brand, Aaron Hertzmann",
         "reference": "Brand, Matthew, and Aaron Hertzmann. <i>Style machines.</i> Proceedings of the 27th annual conference on Computer graphics and interactive techniques . 2000.",
         "url": "https://doi.org/10.1145/344779.344865",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Hsu2005",
@@ -349,7 +349,7 @@
         "authors": "Eugene Hsu, Kari Pulli, Jovan Popović",
         "reference": "Hsu, Eugene, Kari Pulli, and Jovan Popović. <i>Style translation for human motion.</i> ACM SIGGRAPH 2005 Papers. 2005. 1082-1089.",
         "url": "https://doi.org/10.1145/1073204.1073315",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Urtasun2004",
@@ -358,7 +358,7 @@
         "authors": "Raquel Urtasun and Pascal Glardon and Ronan Boulic and Daniel Thalmann and Pascal Fua",
         "reference": "Urtasun, Raquel, et al. <i>Style‐based motion synthesis.</i> Computer Graphics Forum. Vol. 23. No. 4. 9600 Garsington Road, Oxford, OX4 2DQ, UK.: Blackwell Publishing Ltd., 2004.",
         "url": "https://doi.org/10.1111/j.1467-8659.2004.00809.x",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Lee2006",
@@ -367,7 +367,7 @@
         "authors": "Lee, Chan-su and Elgammal, Ahmed and Metaxas, Dimitris",
         "reference": "Lee, Chan-Su, Ahmed Elgammal, and Dimitris Metaxas. <i>Synthesis and control of high resolution facial expressions for visual interactions.</i> 2006 IEEE International Conference on Multimedia and Expo . IEEE, 2006.",
         "url": "https://doi.org/10.1109/ICME.2006.262551",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Kunz2014",
@@ -376,7 +376,7 @@
         "authors": "M Kunz, S Lautenbacher",
         "reference": "Kunz, Miriam, and Stefan Lautenbacher. <i>The faces of pain: a cluster analysis of individual differences in facial activity patterns of pain.</i> European Journal of Pain  18.6 (2014): 813-823.",
         "url": "https://doi.org/10.1002/j.1532-2149.2013.00421.x",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Aberman2020",
@@ -385,7 +385,7 @@
         "authors": "Aberman, Kfir and Weng, Yijia and Lischinski, Dani and Cohen-Or, Daniel and Chen, Baoquan",
         "reference": "Aberman, Kfir, et al. <i>Unpaired motion style transfer from video to animation.</i> ACM Transactions on Graphics (TOG) 39.4 (2020): 64-1.",
         "url": "https://doi.org/10.1145/3386569.3392469",
-        "categories": []
+        "categories": ["body"]
     },
     {
         "id": "Carlisi2021",
@@ -394,7 +394,7 @@
         "authors": "Christina O. Carlisi , Kyle Reed , Fleur G. L. Helmink , Robert Lachlan , Darren P. Cosker , Essi Viding and Isabelle Mareschal",
         "reference": "Carlisi, Christina O., et al. <i>Using genetic algorithms to uncover individual differences in how humans represent facial emotion.</i> Royal Society open science  8.10 (2021): 202251.",
         "url": "https://doi.org/10.1098/rsos.202251",
-        "categories": []
+        "categories": ["face"]
     },
     {
         "id": "Rose1998",
@@ -403,6 +403,6 @@
         "authors": "Rose, C.; Cohen, M.; Bodenheimer, B.",
         "reference": "Rose, Charles, Michael F. Cohen, and Bobby Bodenheimer. <i>Verbs and adverbs: Multidimensional motion interpolation.</i> IEEE Computer Graphics and Applications 18.5 (1998): 32-40.",
         "url": "https://doi.org/10.1109/38.708559",
-        "categories": []
+        "categories": ["body"]
     }
 ]
