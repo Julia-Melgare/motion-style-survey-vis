@@ -17,7 +17,7 @@
  			   "type": "category-entry",
  			   "title": "body",
  			   "description": "Body",
- 			   "content": "<span class=\"content-entry-icon\"><img src=\"images/body.svg\"></span>"
+ 			   "content": "<span class=\"content-entry-icon\"><img src=\"images/body-alt.svg\"></span>"
  		   }
  		]
  	}
