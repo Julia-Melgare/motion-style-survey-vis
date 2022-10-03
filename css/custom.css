@@ -204,7 +204,6 @@ button.category-entry.active, button.category-entry:active, .noUi-connect {
 	height: 22px;
 	width: 16px;
 	position: relative;
-	right: 2px;
 }
 
 .category-entry-span {
@@ -388,7 +387,6 @@ button.category-entry.active, button.category-entry:active, .noUi-connect {
 	height: 22px;
 	width: 16px;
 	position: relative;
-	right: 2px;
 }
 
 .bar-icon > .glyphicon {
