@@ -10,7 +10,7 @@
  			   "type": "category-entry",
  			   "title": "face",
  			   "description": "Face",
- 			   "content": "<span class=\"content-entry-icon\"><img src=\"images/face.svg\"></span>"
+ 			   "content": "<span class=\"content-entry-icon\"><img src=\"images/face-fill.svg\"></span>"
  		   },
  		   
  		   {
