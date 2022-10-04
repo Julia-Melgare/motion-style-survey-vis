@@ -201,10 +201,9 @@ button.category-entry.active, button.category-entry:active, .noUi-connect {
 
 .category-entry > .content-entry-icon {
 	display: inline-block;
-	height: 22px;
-	width: 16px;
+	height: 20px;
+	width: 20px;
 	position: relative;
-	left: 2px;
 }
 
 .category-entry-span {
