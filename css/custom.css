@@ -181,7 +181,7 @@ body.modal-open {
 }
 
 button.category-entry.active, button.category-entry:active, .noUi-connect {
-	background-color: lightgray
+	background-color: lightgray;
 	border-color: gray;
 }
 
