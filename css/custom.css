@@ -180,9 +180,14 @@ body.modal-open {
 	margin-bottom: 2px;
 }
 
-button.category-entry.active, button.category-entry:active, .noUi-connect {
+button.category-entry.active, button.category-entry:active {
 	background-color: lightgray;
 	border-color: gray;
+}
+
+.noUi-connect {
+	background-color: #96caf1;
+	border-color: #42799c;
 }
 
 .category-entry > .glyphicon {
