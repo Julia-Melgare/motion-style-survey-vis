@@ -808,8 +808,8 @@ function renderTimeChart() {
 function getTimeChartEntryDescription(entry){
 	if (!entry.gap) {
 		return entry.year + ": "
-			+ entry.current + " techniques displayed, "
-			+ entry.total + " techniques in total";
+			+ entry.current + " papers displayed, "
+			+ entry.total + " papers in total";
 	} else {
 		return null;
 	}
@@ -1049,7 +1049,7 @@ function onAboutModalShown(){
     .range(colorbrewer.Dark2[5]);
 	
 	$("#statsContainer").append(
-			"<div>Total number of techniques included: "
+			"<div>Total number of papers included: "
 			+ "<span id=\"totalTechniquesCount\">"
 			+ totalCount + "</span>" + "</div>");
 	

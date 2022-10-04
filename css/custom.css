@@ -181,8 +181,8 @@ body.modal-open {
 }
 
 button.category-entry.active, button.category-entry:active, .noUi-connect {
-	background-color: #dad3c4;
-	border-color: #b3aea1;
+	background-color: #96caf1;
+	border-color: #6095ba;
 }
 
 .category-entry > .glyphicon {
@@ -451,8 +451,8 @@ hr {
 
 #timeChart {
 	min-height: 50px;
-	max-height: 50px;
-	height: 50px;
+	max-height: 100px;
+	height: 100px;
 	margin-top: 10px;
 }
 
@@ -463,7 +463,7 @@ hr {
 }
 
 .time-chart-current {
-	fill: #dad3c4;
+	fill: #96caf1;
 	stroke: none;
 }
 
