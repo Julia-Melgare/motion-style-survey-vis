@@ -186,7 +186,7 @@ button.category-entry.active, button.category-entry:active {
 }
 
 .noUi-connect {
-	background-color: #659bd4;
+	background-color: #a4c2f4ff;
 	border-color: gray;
 }
 
@@ -468,7 +468,7 @@ hr {
 }
 
 .time-chart-current {
-	fill: #659bd4;
+	fill: #a4c2f4ff;
 	stroke: none;
 }
 
