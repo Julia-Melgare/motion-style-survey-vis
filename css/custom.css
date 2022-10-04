@@ -186,8 +186,8 @@ button.category-entry.active, button.category-entry:active {
 }
 
 .noUi-connect {
-	background-color: #96caf1;
-	border-color: #42799c;
+	background-color: #659bd4;
+	border-color: gray;
 }
 
 .category-entry > .glyphicon {
@@ -288,11 +288,11 @@ button.category-entry.active, button.category-entry:active {
 }
 
 .content-entry:hover {
-	box-shadow: 2px 2px 5px 1px gold, 4px 4px 10px darkgrey;
+	box-shadow: 2px 2px 5px 1px #9dc6e0, 4px 4px 10px darkgrey;
 }
 
 .content-entry.active {
-	box-shadow: 2px 2px 5px 1px yellow, 4px 4px 10px darkgrey;
+	box-shadow: 2px 2px 5px 1px #c1e7ff, 4px 4px 10px darkgrey;
 }
 
 .entry-details-title {
@@ -468,7 +468,7 @@ hr {
 }
 
 .time-chart-current {
-	fill: #96caf1;
+	fill: #659bd4;
 	stroke: none;
 }
 
