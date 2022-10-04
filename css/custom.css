@@ -77,8 +77,8 @@ body.modal-open {
 
 .sidebar-fixed {
 	min-width: 220px;
-	max-width: 220px;
-	width: 220px;
+	max-width: 440px;
+	width: 320px;
 }
 
 .row-container {
@@ -181,8 +181,8 @@ body.modal-open {
 }
 
 button.category-entry.active, button.category-entry:active, .noUi-connect {
-	background-color: #96caf1;
-	border-color: #6095ba;
+	background-color: lightgray
+	border-color: gray;
 }
 
 .category-entry > .glyphicon {
