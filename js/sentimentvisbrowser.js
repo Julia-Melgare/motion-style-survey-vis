@@ -826,7 +826,7 @@ function getTimeChartEntryDescription(entry){
 // Prepares the word cloud data with relevant words and their frequency
 function prepareWordCloudData(){
 	var wordCount = {}
-
+	var wordCloudData = []
 	$.each(entriesMap, function(k, v){
 		var titleWords = v.title.split(" ");
 		titleWords.forEach(w => {
@@ -837,7 +837,11 @@ function prepareWordCloudData(){
 			}			
 		});
 	});
-	return wordCount;
+	for (const [k, v] of Object.entries(wordCount)) {
+		console.log(k, v);
+		wordCloudData.push({text: k, size: v})
+	}
+	return wordCloudData;
 }
 
 // Renders the word cloud graph
@@ -859,7 +863,7 @@ function renderWordCloud(){
 
 	var layout = d3.layout.cloud()
 		.size([canvasWidth, canvasHeight])
-		.words($.each(wordCloudData, function(k, v) {return {text: k, size: v}; }))
+		.words(wordCloudData)
 		.padding(5)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
 		.fontSize(function(d) { return d.size; })      // font size of words
