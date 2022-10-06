@@ -43,6 +43,7 @@ var timeChartData;
 
 // References to the word cloud-related objects
 var wordCloudSvg;
+var wordCloudLayout;
 var wordCloudXScale;
 var wordCloudYScale;
 var wordCloudHeight;
@@ -861,20 +862,20 @@ function renderWordCloud(){
 	.attr("width", outerWidth + "px")
 	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
 
-	var layout = d3.layout.cloud()
+	var wordCloudLayout = d3.layout.cloud()
 		.size([canvasWidth, canvasHeight])
 		.words(wordCloudData)
 		.padding(5)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
 		.fontSize(function(d) { return d.size; })      // font size of words
 		.on("end", drawWords, );
-	layout.start();
+	wordCloudLayout.start();
 }
 
 function drawWords(words){
 	wordCloudSvg
     .append("g")
-      .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+      .attr("transform", "translate(" + wordCloudLayout.size()[0] / 2 + "," + wordCloudLayout.size()[1] / 2 + ")")
       .selectAll("text")
         .data(words)
       .enter().append("text")
