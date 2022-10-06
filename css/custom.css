@@ -481,7 +481,7 @@ hr {
 
 #wordCloud {
 	min-height: 50px;
-	max-height: 100px;
-	height: 100px;
+	max-height: 200px;
+	height: 200px;
 	margin-top: 10px;
 }

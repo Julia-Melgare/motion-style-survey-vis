@@ -831,10 +831,11 @@ function prepareWordCloudData(){
 	$.each(entriesMap, function(k, v){
 		var titleWords = v.title.split(" ");
 		titleWords.forEach(w => {
-			if (w.length > 3 && w.toLowerCase() != "with"){
-				if (!wordCount[w])
-					wordCount[w] = 0;
-				wordCount[w] += 1;
+			word = w.toLowerCase().replace(/[():]/g, '')
+			if (word.length > 3 && word.toLowerCase() != "with" && word.toLowerCase() != "from"){
+				if (!wordCount[word])
+					wordCount[word] = 0;
+				wordCount[word] += 1;
 			}			
 		});
 	});
