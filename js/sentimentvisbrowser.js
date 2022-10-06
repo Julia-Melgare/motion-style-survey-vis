@@ -876,11 +876,11 @@ function renderWordCloud(){
 function drawWords(words){
 	wordCloudSvg
     .append("g")
-      .attr("transform", "translate(" + wordCloudLayout.size()[0] + "," + wordCloudLayout.size()[1] + ")")
+      .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")")
       .selectAll("text")
         .data(words)
       .enter().append("text")
-        .style("font-size", function(d) { return d.size; })
+        .style("font-size", function(d) { return d.size*2; })
         .style("fill", "#69b3a2")
         .attr("text-anchor", "middle")
         .style("font-family", "Impact")
