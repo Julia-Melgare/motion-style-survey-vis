@@ -831,7 +831,7 @@ function prepareWordCloudData(){
 	$.each(entriesMap, function(k, v){
 		var titleWords = v.title.split(" ");
 		titleWords.forEach(w => {
-			word = w.toLowerCase().replace(/[():]/g, '')
+			var word = w.toLowerCase().replace(/[():]/g, '')
 			if (word.length > 3 && word.toLowerCase() != "with" && word.toLowerCase() != "from"){
 				if (!wordCount[word])
 					wordCount[word] = 0;
