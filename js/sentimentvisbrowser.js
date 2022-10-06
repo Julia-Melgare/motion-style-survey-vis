@@ -867,11 +867,11 @@ function renderWordCloud(){
 		.padding(5)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
 		.fontSize(function(d) { return d.size; })      // font size of words
-		.on("end", drawWords);
+		.on("end", drawWords, wordCloudSvg);
 	layout.start();
 }
 
-function drawWords(words){
+function drawWords(words, svg){
 	svg
     .append("g")
       .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
