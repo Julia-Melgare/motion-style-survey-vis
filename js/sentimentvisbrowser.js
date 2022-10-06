@@ -41,6 +41,13 @@ var timeChartYScale;
 var timeChartHeight;
 var timeChartData;
 
+// References to the word cloud-related objects
+var wordCloudSvg;
+var wordCloudXScale;
+var wordCloudYScale;
+var wordCloudHeight;
+var wordCloudData;
+
 $(document).ready(function(){
 	windowWidth = $(window).width();
 	windowHeight = $(window).height();
@@ -447,6 +454,7 @@ function loadContent(){
 		markIncompleteCategoryEntries();
 		
 		renderTimeChart();
+		renderWordCloud();
 		
 		configureTimeFilter();
 		
@@ -814,6 +822,71 @@ function getTimeChartEntryDescription(entry){
 		return null;
 	}
 }
+
+// Prepares the word cloud data with relevant words and their frequency
+function prepareWordCloudData(){
+	var wordCount = {}
+
+	$.each(entriesMap, function(k, v){
+		var titleWords = v.title.split(" ");
+		titleWords.forEach(w => {
+			if (w.length > 3 && w.toLowerCase() != "with"){
+				if (!wordCount[w])
+					wordCount[w] = 0;
+				wordCount[w] += 1;
+			}			
+		});
+	});
+	return wordCount;
+}
+
+// Renders the word cloud graph
+function renderWordCloud(){
+	wordCloudData = prepareWordCloudData();
+
+	var margin = { top: 1, right: 1, bottom: 1, left: 1};	
+	var outerWidth = Math.round($("#wordCloud").width());
+	var outerHeight = Math.round($("#wordCloud").height());	
+	var canvasHeight = outerHeight - margin.top - margin.bottom;
+	var canvasWidth = outerWidth - margin.left - margin.right;
+
+	wordCloudSvg = d3.select($("#wordCloud").get(0)).append("svg:svg")
+	.attr("id", "wordCloudSvg")
+	.classed("svg-vis", true)
+	.attr("height", outerHeight + "px")
+	.attr("width", outerWidth + "px")
+	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
+
+	var layout = d3.layout.cloud()
+		.size([canvasWidth, canvasHeight])
+		.words(wordCloudData.map(function(k, v) {return {text: k, size: v}; }))
+		.padding(5)
+		.rotate(function() { return ~~(Math.random() * 2) * 90; })
+		.fontSize(function(d) { return d.size; })      // font size of words
+		.on("end", drawWords);
+	layout.start();
+}
+
+function drawWords(words){
+	svg
+    .append("g")
+      .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size; })
+        .style("fill", "#69b3a2")
+        .attr("text-anchor", "middle")
+        .style("font-family", "Impact")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+}
+// TODO:
+// Creates the text description for words in the cloud
+// function getWordCloudEntryDescription(entry)
+
 
 // Updates the set of displayed entries based on current filter values
 function updateDisplayedEntries(){

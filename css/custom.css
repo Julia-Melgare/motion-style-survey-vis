@@ -478,3 +478,10 @@ hr {
 	font-weight: bold;
 	pointer-events: none;
 }
+
+#wordCloud {
+	min-height: 50px;
+	max-height: 100px;
+	height: 100px;
+	margin-top: 10px;
+}
