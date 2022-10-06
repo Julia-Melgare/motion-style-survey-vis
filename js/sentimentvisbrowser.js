@@ -862,7 +862,7 @@ function renderWordCloud(){
 	.attr("width", outerWidth + "px")
 	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
 
-	var wordCloudLayout = d3.layout.cloud()
+	wordCloudLayout = d3.layout.cloud()
 		.size([canvasWidth, canvasHeight])
 		.words(wordCloudData)
 		.padding(5)
