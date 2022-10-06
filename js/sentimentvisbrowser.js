@@ -876,7 +876,7 @@ function renderWordCloud(){
 function drawWords(words){
 	wordCloudSvg
     .append("g")
-      .attr("transform", "translate(" + wordCloudLayout.size()[0] / 2 + "," + wordCloudLayout.size()[1] / 2 + ")")
+      .attr("transform", "translate(" + wordCloudLayout.size()[0] + "," + wordCloudLayout.size()[1] + ")")
       .selectAll("text")
         .data(words)
       .enter().append("text")
