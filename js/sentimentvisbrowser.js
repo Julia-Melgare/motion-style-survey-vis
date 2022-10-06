@@ -859,7 +859,7 @@ function renderWordCloud(){
 
 	var layout = d3.layout.cloud()
 		.size([canvasWidth, canvasHeight])
-		.words(wordCloudData.map(function(k, v) {return {text: k, size: v}; }))
+		.words($.each(wordCloudData, function(k, v) {return {text: k, size: v}; }))
 		.padding(5)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
 		.fontSize(function(d) { return d.size; })      // font size of words
