@@ -878,7 +878,7 @@ function renderWordCloud(){
 		.size([canvasWidth, canvasHeight])
 		.words(wordCloudData)
 		.padding(5)
-		.rotate(function() { return ~~(Math.random() * 2) * 90; })
+		.rotate(function() { return ~~(random() * 2) * 90; })
 		.fontSize(function(d) { return Math.round(normalizeSize(d.size)); })      // font size of words
 		.on("end", drawWords, );
 	wordCloudLayout.start();
@@ -895,7 +895,7 @@ function drawWords(words){
       .enter().append("text")
 	    .classed("word-cloud-text", true)
         .style("font-size", function(d) { return d.size; })
-        .style("fill", function(d) { return colors[Math.floor(Math.random()*colors.length)]; })
+        .style("fill", function(d) { return colors[Math.floor(random()*colors.length)]; })
         .attr("text-anchor", "middle")
         .style("font-family", "Trebuchet MS")
 		.style("font-weight", "bold")
