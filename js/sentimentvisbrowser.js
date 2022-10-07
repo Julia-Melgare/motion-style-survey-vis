@@ -44,8 +44,8 @@ var timeChartData;
 // References to the word cloud-related objects
 var wordCloudSvg;
 var wordCloudLayout;
-var wordCloudMaxFontSize = 25;
-var wordCloudMinFontSize = 3;
+var wordCloudMaxFontSize = 50;
+var wordCloudMinFontSize = 5;
 var wordCloudDict = {};
 var wordCloudData;
 
