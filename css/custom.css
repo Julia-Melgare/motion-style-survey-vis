@@ -186,8 +186,8 @@ button.category-entry.active, button.category-entry:active {
 }
 
 .noUi-connect {
-	background-color: #a4c2f4ff;
-	border-color: gray;
+	background-color: #17becf;
+	border-color: dimgray;
 }
 
 .category-entry > .glyphicon {
@@ -463,12 +463,12 @@ hr {
 
 .time-chart-total {
 	fill: white;
-	stroke: grey;
+	stroke: dimgrey;
 	stroke-width: 1px;
 }
 
 .time-chart-current {
-	fill: #a4c2f4ff;
+	fill: #17becf; 
 	stroke: none;
 }
 
