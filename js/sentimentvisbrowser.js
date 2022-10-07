@@ -880,6 +880,7 @@ function drawWords(words){
 	wordCloudSvg
     .append("g")
       .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")")
+	  .attr("title", getWordCloudEntryDescription)
       .selectAll("text")
         .data(words)
       .enter().append("text")
@@ -899,12 +900,14 @@ function normalizeSize(x){
 	var min = Math.min.apply(Math, values)
 	var max = Math.max.apply(Math, values)
 	var res = ((wordCloudMaxFontSize - wordCloudMinFontSize) * (x-min)/(max-min)) + wordCloudMinFontSize;
-	console.log(x, res)
 	return res
 }
-// TODO:
+
 // Creates the text description for words in the cloud
-// function getWordCloudEntryDescription(entry)
+function getWordCloudEntryDescription(entry){
+	console.log(entry)
+	return entry; //+ ": " + wordCloudDict[entry] + " occurrences";
+}
 
 
 // Updates the set of displayed entries based on current filter values
