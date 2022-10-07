@@ -839,6 +839,7 @@ function prepareWordCloudData(){
 			}			
 		});
 	});
+	wordCount = sort_object(wordCount)
 	wordCloudDict = wordCount
 	for (const [k, v] of Object.entries(wordCount)) {
 		console.log(k, v);
@@ -868,14 +869,14 @@ function renderWordCloud(){
 		.size([canvasWidth, canvasHeight])
 		.words(wordCloudData)
 		.padding(5)
-		.rotate(function() { return 0 })//~~(Math.random() * 2) * 90;
+		.rotate(function() { return ~~(Math.random() * 2) * 90; })
 		.fontSize(function(d) { return Math.round(normalizeSize(d.size)); })      // font size of words
 		.on("end", drawWords, );
 	wordCloudLayout.start();
 }
 //
 function drawWords(words){
-	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf", "#69b3a2"]
+	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#bcbd22","#17becf", "#69b3a2"]
 	wordCloudSvg
     .append("g")
       .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")")
@@ -1399,6 +1400,22 @@ function onSummaryEntryLinkClick(){
 	// Return false to prevent the default handler for hyperlinks
 	return false;
 }
+
+function sort_object(obj) {
+    items = Object.keys(obj).map(function(key) {
+        return [key, obj[key]];
+    });
+    items.sort(function(first, second) {
+        return second[1] - first[1];
+    });
+    sorted_obj={}
+    $.each(items, function(k, v) {
+        use_key = v[0]
+        use_value = v[1]
+        sorted_obj[use_key] = use_value
+    })
+    return(sorted_obj)
+} 
 
 // Computes the coauthorship graph, etc.
 function analyseContent(){
