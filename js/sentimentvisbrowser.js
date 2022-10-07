@@ -55,9 +55,9 @@ var makeRandom = function(seed) {
         return (seed = (seed * 9301 + 49297) % 233280) / 233280.0; 
     }
 }
-var seed = Math.floor(Math.random() * 100) + 1
-console.log("using random seed: ", seed)
-var random = makeRandom(seed); //123 é boa
+//var seed = Math.floor(Math.random() * 100) + 1
+//console.log("using random seed: ", seed)
+var random = makeRandom(26);
 
 $(document).ready(function(){
 	windowWidth = $(window).width();
