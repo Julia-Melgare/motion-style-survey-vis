@@ -869,7 +869,7 @@ function renderWordCloud(){
 		.words(wordCloudData)
 		.padding(5)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
-		.fontSize(function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(wordCloudDict.values()))/(Math.max(wordCloudDict.values())-Math.min(wordCloudDict.values()))) + wordCloudMinFontSize; })      // font size of words
+		.fontSize(function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(Object.values(wordCloudDict)))/(Math.max(Object.values(wordCloudDict))-Math.min(Object.values(wordCloudDict)))) + wordCloudMinFontSize; })      // font size of words
 		.on("end", drawWords, );
 	wordCloudLayout.start();
 }
@@ -882,7 +882,7 @@ function drawWords(words){
       .selectAll("text")
         .data(words)
       .enter().append("text")
-        .style("font-size", function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(wordCloudDict.values()))/(Math.max(wordCloudDict.values())-Math.min(wordCloudDict.values()))) + wordCloudMinFontSize; })
+        .style("font-size", function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(Object.values(wordCloudDict)))/(Math.max(Object.values(wordCloudDict))-Math.min(Object.values(wordCloudDict)))) + wordCloudMinFontSize; })
         .style("fill", Math.floor(Math.random()*colors.length))
         .attr("text-anchor", "middle")
         .style("font-family", "Trebuchet MS")
