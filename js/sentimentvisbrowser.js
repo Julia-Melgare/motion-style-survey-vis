@@ -867,7 +867,7 @@ function renderWordCloud(){
 	wordCloudLayout = d3.layout.cloud()
 		.size([canvasWidth, canvasHeight])
 		.words(wordCloudData)
-		.padding(5)
+		.padding(3)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
 		.fontSize(function(d) { return Math.round(normalizeSize(d.size)); })      // font size of words
 		.on("end", drawWords, );
@@ -891,8 +891,6 @@ function drawWords(words){
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
         .text(function(d) { return d.text; })
-		.append("g")
-		.attr("title", getWordCloudEntryDescription);
 }
 
 function normalizeSize(x){
