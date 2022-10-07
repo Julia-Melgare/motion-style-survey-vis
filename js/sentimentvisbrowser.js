@@ -880,7 +880,7 @@ function drawWords(words){
     .append("g")
       .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")")
       .selectAll("text")
-        .data(words)
+      .data(words)
       .enter().append("text")
         .style("font-size", function(d) { return d.size; })
         .style("fill", function(d) { return colors[Math.floor(Math.random()*colors.length)]; })
@@ -890,9 +890,9 @@ function drawWords(words){
         .attr("transform", function(d) {
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
-		.append("title")
-			.text(getWordCloudEntryDescription)
         .text(function(d) { return d.text; })
+		.append("title")
+		.text(getWordCloudEntryDescription)
 }
 
 function normalizeSize(x){
