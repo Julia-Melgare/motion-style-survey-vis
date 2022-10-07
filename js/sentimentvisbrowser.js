@@ -116,7 +116,7 @@ function updateLayoutSize() {
 
 function setupTooltips(){
 	$("body").tooltip({
-		selector: "[data-tooltip=tooltip], #timeChartSvg g.time-chart-entry.not-gap",
+		selector: "[data-tooltip=tooltip], #timeChartSvg g.time-chart-entry.not-gap, #wordCloudSvg text.word-cloud-text",
         container: "body",
         placement: "auto"
     });
@@ -867,7 +867,7 @@ function renderWordCloud(){
 	wordCloudLayout = d3.layout.cloud()
 		.size([canvasWidth, canvasHeight])
 		.words(wordCloudData)
-		.padding(4)
+		.padding(5)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
 		.fontSize(function(d) { return Math.round(normalizeSize(d.size)); })      // font size of words
 		.on("end", drawWords, );
@@ -878,7 +878,7 @@ function drawWords(words){
 	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#bcbd22","#17becf", "#69b3a2"]
 	wordCloudSvg
     .append("g")
-	  .classed("word-cloud-entry", true)
+	  .classed("word-cloud-g", true)
       .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")")
       .selectAll("text")
       .data(words)
