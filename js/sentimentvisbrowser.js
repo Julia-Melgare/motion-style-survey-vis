@@ -49,6 +49,15 @@ var wordCloudMinFontSize = 5;
 var wordCloudDict = {};
 var wordCloudData;
 
+// Custom random number generator
+var makeRandom = function(seed) {
+    return function() {
+        return (seed = (seed * 9301 + 49297) % 233280) / 233280.0; 
+    }
+}
+
+var random = makeRandom(123);
+
 $(document).ready(function(){
 	windowWidth = $(window).width();
 	windowHeight = $(window).height();
@@ -865,6 +874,7 @@ function renderWordCloud(){
 	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
 
 	wordCloudLayout = d3.layout.cloud()
+		.random(random)
 		.size([canvasWidth, canvasHeight])
 		.words(wordCloudData)
 		.padding(5)
