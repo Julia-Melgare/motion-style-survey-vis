@@ -1410,8 +1410,8 @@ function sort_object(obj) {
     });
     var sorted_obj={}
     $.each(items, function(k, v) {
-        use_key = v[0]
-        use_value = v[1]
+        var use_key = v[0]
+        var use_value = v[1]
         sorted_obj[use_key] = use_value
     })
     return(sorted_obj)
