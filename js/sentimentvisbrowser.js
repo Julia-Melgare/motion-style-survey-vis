@@ -44,9 +44,9 @@ var timeChartData;
 // References to the word cloud-related objects
 var wordCloudSvg;
 var wordCloudLayout;
-var wordCloudXScale;
-var wordCloudYScale;
-var wordCloudHeight;
+var wordCloudMaxFontSize;
+var wordCloudMinFontSize;
+var wordCloudDict = {};
 var wordCloudData;
 
 $(document).ready(function(){
@@ -839,6 +839,7 @@ function prepareWordCloudData(){
 			}			
 		});
 	});
+	wordCloudDict = wordCount
 	for (const [k, v] of Object.entries(wordCount)) {
 		console.log(k, v);
 		wordCloudData.push({text: k, size: v})
@@ -868,22 +869,24 @@ function renderWordCloud(){
 		.words(wordCloudData)
 		.padding(5)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
-		.fontSize(function(d) { return d.size; })      // font size of words
+		.fontSize(function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(wordCloudDict.values()))/(Math.max(wordCloudDict.values())-Math.min(wordCloudDict.values()))) + wordCloudMinFontSize; })      // font size of words
 		.on("end", drawWords, );
 	wordCloudLayout.start();
 }
 
 function drawWords(words){
+	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf", "#69b3a2"]
 	wordCloudSvg
     .append("g")
       .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")")
       .selectAll("text")
         .data(words)
       .enter().append("text")
-        .style("font-size", function(d) { return d.size*2; })
-        .style("fill", "#69b3a2")
+        .style("font-size", function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(wordCloudDict.values()))/(Math.max(wordCloudDict.values())-Math.min(wordCloudDict.values()))) + wordCloudMinFontSize; })
+        .style("fill", Math.floor(Math.random()*colors.length))
         .attr("text-anchor", "middle")
-        .style("font-family", "Impact")
+        .style("font-family", "Trebuchet MS")
+		.style("font-weight", "bold")
         .attr("transform", function(d) {
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
