@@ -868,7 +868,7 @@ function renderWordCloud(){
 		.size([canvasWidth, canvasHeight])
 		.words(wordCloudData)
 		.padding(5)
-		.rotate(function() { return ~~(Math.random() * 2) * 90; })
+		.rotate(function() { return 0 })//~~(Math.random() * 2) * 90;
 		.fontSize(function(d) { return Math.round(normalizeSize(d.size)); })      // font size of words
 		.on("end", drawWords, );
 	wordCloudLayout.start();
