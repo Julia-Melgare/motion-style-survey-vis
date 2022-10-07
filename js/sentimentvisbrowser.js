@@ -882,7 +882,7 @@ function drawWords(words){
       .selectAll("text")
         .data(words)
       .enter().append("text")
-        .style("font-size", function(d) { d.size; })
+        .style("font-size", function(d) { return d.size; })
         .style("fill", function(d) { return colors[Math.floor(Math.random()*colors.length)]; })
         .attr("text-anchor", "middle")
         .style("font-family", "Trebuchet MS")
