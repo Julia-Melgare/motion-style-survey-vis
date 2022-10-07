@@ -869,11 +869,11 @@ function renderWordCloud(){
 		.words(wordCloudData)
 		.padding(5)
 		.rotate(function() { return ~~(Math.random() * 2) * 90; })
-		.fontSize(function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(Object.values(wordCloudDict)))/(Math.max(Object.values(wordCloudDict))-Math.min(Object.values(wordCloudDict)))) + wordCloudMinFontSize; })      // font size of words
+		.fontSize(function(d) { return d.size; })      // font size of words
 		.on("end", drawWords, );
 	wordCloudLayout.start();
 }
-
+//return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(Object.values(wordCloudDict)))/(Math.max(Object.values(wordCloudDict))-Math.min(Object.values(wordCloudDict)))) + wordCloudMinFontSize;
 function drawWords(words){
 	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf", "#69b3a2"]
 	wordCloudSvg
@@ -882,7 +882,7 @@ function drawWords(words){
       .selectAll("text")
         .data(words)
       .enter().append("text")
-        .style("font-size", function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(Object.values(wordCloudDict)))/(Math.max(Object.values(wordCloudDict))-Math.min(Object.values(wordCloudDict)))) + wordCloudMinFontSize; })
+        .style("font-size", function(d) { return d.size; })
         .style("fill", colors[Math.floor(Math.random()*colors.length)])
         .attr("text-anchor", "middle")
         .style("font-family", "Trebuchet MS")
