@@ -842,7 +842,6 @@ function prepareWordCloudData(){
 	wordCount = sort_object(wordCount)
 	wordCloudDict = wordCount
 	for (const [k, v] of Object.entries(wordCount)) {
-		console.log(k, v);
 		wordCloudData.push({text: k, size: v})
 	}
 	return wordCloudData;
@@ -880,7 +879,6 @@ function drawWords(words){
 	wordCloudSvg
     .append("g")
       .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")")
-	  .attr("title", getWordCloudEntryDescription)
       .selectAll("text")
         .data(words)
       .enter().append("text")
@@ -892,7 +890,8 @@ function drawWords(words){
         .attr("transform", function(d) {
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
-        .text(function(d) { return d.text; });
+        .text(function(d) { return d.text; })
+		.attr("title", getWordCloudEntryDescription);
 }
 
 function normalizeSize(x){
@@ -906,7 +905,7 @@ function normalizeSize(x){
 // Creates the text description for words in the cloud
 function getWordCloudEntryDescription(entry){
 	console.log(entry)
-	return entry; //+ ": " + wordCloudDict[entry] + " occurrences";
+	return entry.text; //+ ": " + wordCloudDict[entry] + " occurrences";
 }
 
 
