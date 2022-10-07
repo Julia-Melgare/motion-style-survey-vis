@@ -892,6 +892,7 @@ function drawWords(words){
         .attr("transform", function(d) {
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
+		.attr("title", getWordCloudEntryDescription)
         .text(function(d) { return d.text; })
 }
 
