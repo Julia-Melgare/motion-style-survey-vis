@@ -894,7 +894,10 @@ function drawWords(words){
 }
 
 function normalizeSize(x){
-	var res = ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (x-Math.min(Object.values(wordCloudDict)))/(Math.max(Object.values(wordCloudDict))-Math.min(Object.values(wordCloudDict)))) + wordCloudMinFontSize;
+	var values = Object.values(wordCloudDict)
+	var min = Math.min.apply(Math, values)
+	var max = Math.max.apply(Math, values)
+	var res = ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (x-min)/(max-min)) + wordCloudMinFontSize;
 	console.log(x, res)
 	return res
 }
