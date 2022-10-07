@@ -1402,13 +1402,13 @@ function onSummaryEntryLinkClick(){
 }
 
 function sort_object(obj) {
-    items = Object.keys(obj).map(function(key) {
+    var items = Object.keys(obj).map(function(key) {
         return [key, obj[key]];
     });
     items.sort(function(first, second) {
         return second[1] - first[1];
     });
-    sorted_obj={}
+    var sorted_obj={}
     $.each(items, function(k, v) {
         use_key = v[0]
         use_value = v[1]
