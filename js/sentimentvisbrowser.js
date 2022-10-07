@@ -897,7 +897,7 @@ function normalizeSize(x){
 	var values = Object.values(wordCloudDict)
 	var min = Math.min.apply(Math, values)
 	var max = Math.max.apply(Math, values)
-	var res = ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (x-min)/(max-min)) + wordCloudMinFontSize;
+	var res = ((wordCloudMaxFontSize - wordCloudMinFontSize) * (x-min)/(max-min)) + wordCloudMinFontSize;
 	console.log(x, res)
 	return res
 }
