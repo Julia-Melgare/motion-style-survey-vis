@@ -908,7 +908,7 @@ function normalizeSize(x){
 function getWordCloudEntryDescription(entry){
 	var occurrences = " occurrence"
 	if ( wordCloudDict[entry.text] > 1 )
-		occurrences.concat("s")
+		occurrences = occurrences.concat("s")
 	return "\"" + entry.text + "\": " + wordCloudDict[entry.text] + occurrences;
 }
 
