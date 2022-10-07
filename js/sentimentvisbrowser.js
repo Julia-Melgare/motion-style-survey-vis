@@ -44,8 +44,8 @@ var timeChartData;
 // References to the word cloud-related objects
 var wordCloudSvg;
 var wordCloudLayout;
-var wordCloudMaxFontSize;
-var wordCloudMinFontSize;
+var wordCloudMaxFontSize = 50;
+var wordCloudMinFontSize = 5;
 var wordCloudDict = {};
 var wordCloudData;
 
@@ -883,7 +883,7 @@ function drawWords(words){
         .data(words)
       .enter().append("text")
         .style("font-size", function(d) { return ((wordCloudMaxFontSize - wordCloudMaxFontSize) * (d.size-Math.min(Object.values(wordCloudDict)))/(Math.max(Object.values(wordCloudDict))-Math.min(Object.values(wordCloudDict)))) + wordCloudMinFontSize; })
-        .style("fill", Math.floor(Math.random()*colors.length))
+        .style("fill", colors[Math.floor(Math.random()*colors.length)])
         .attr("text-anchor", "middle")
         .style("font-family", "Trebuchet MS")
 		.style("font-weight", "bold")
