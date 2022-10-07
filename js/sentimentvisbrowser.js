@@ -56,7 +56,7 @@ var makeRandom = function(seed) {
     }
 }
 
-var random = makeRandom(126); //123 é boa
+var random = makeRandom(127); //123 é boa
 
 $(document).ready(function(){
 	windowWidth = $(window).width();
