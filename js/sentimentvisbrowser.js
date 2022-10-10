@@ -904,6 +904,7 @@ function drawWords(words){
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
 		.attr("title", getWordCloudEntryDescription)
+		.on("mouseover", drawWordCloudEntryBoundingBox)
         .text(function(d) { return d.text; })
 }
 
@@ -921,6 +922,11 @@ function getWordCloudEntryDescription(entry){
 	if ( wordCloudDict[entry.text] > 1 )
 		occurrences = occurrences.concat("s")
 	return "\"" + entry.text + "\": " + wordCloudDict[entry.text] + occurrences;
+}
+
+// Draws bounding box on words in the cloud
+function drawWordCloudEntryBoundingBox(entry){
+	console.log(entry.getBBox())
 }
 
 
