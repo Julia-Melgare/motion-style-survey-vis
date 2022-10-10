@@ -926,7 +926,7 @@ function getWordCloudEntryDescription(entry){
 
 // Draws bounding box on words in the cloud
 function drawWordCloudEntryBoundingBox(entry){
-	word = d3.select(entry)
+	var word = d3.select(entry)
 	console.log(word)
 	word = d3.select(this)
 	console.log(word)
