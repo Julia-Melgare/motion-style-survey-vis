@@ -904,8 +904,8 @@ function drawWords(words){
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
 		.attr("title", getWordCloudEntryDescription)
-		.on("mouseover", drawWordCloudEntryBoundingBox)
-        .text(function(d) { return d.text; })
+		//.on("mouseover", drawWordCloudEntryBoundingBox)
+        .text(function(d) { return d.text; });
 }
 
 function normalizeSize(x){
