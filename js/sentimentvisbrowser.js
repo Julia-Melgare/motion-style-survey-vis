@@ -927,7 +927,6 @@ function getWordCloudEntryDescription(entry){
 // Draws bounding box on words in the cloud
 function drawWordCloudEntryBoundingBox(entry){
 	var word = d3.select(this)
-	var text = d3.select(entry)
 	var bbox = word.node().getBBox();
 	word
 	.append("rect")
@@ -935,7 +934,7 @@ function drawWordCloudEntryBoundingBox(entry){
   	.attr('y', bbox.y)
   	.attr('width', bbox.width)
   	.attr('height', bbox.height)
-	.attr('stroke', text.style('fill'))
+	.attr('stroke', word.selectAll("text").style("fill"))
 	.attr('fill', 'transparent');
 }
 
