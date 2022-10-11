@@ -934,7 +934,7 @@ function drawWordCloudEntryBoundingBox(entry){
   	.attr('y', bbox.y)
   	.attr('width', bbox.width)
   	.attr('height', bbox.height)
-	.attr('stroke', word.selectAll("text").style("fill"))
+	.attr('stroke', word.selectAll("word-cloud-text").style("fill"))
 	.attr('fill', 'transparent');
 }
 
