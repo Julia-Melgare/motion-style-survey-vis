@@ -924,18 +924,20 @@ function getWordCloudEntryDescription(entry){
 	return "\"" + entry.text + "\": " + wordCloudDict[entry.text] + occurrences;
 }
 
+
 // Draws bounding box on words in the cloud
 function drawWordCloudEntryBoundingBox(entry){
 	var word = d3.select(this)
 	var bbox = word.node().getBBox();
-	word
-	.append("rect")
+	var ctm = word.node().getCtm();
+	var rect = word.append("rect")
 	.attr('x', bbox.x)
   	.attr('y', bbox.y)
   	.attr('width', bbox.width)
   	.attr('height', bbox.height)
 	.attr('stroke', 'black')
-	.attr('fill', 'transparent');
+	.attr('fill', 'black');
+	rect.transform.baseVal.initialize(rect.ownerSVGElement.createSVGTransformFromMatrix(ctm))
 }
 
 
