@@ -926,10 +926,17 @@ function getWordCloudEntryDescription(entry){
 
 // Draws bounding box on words in the cloud
 function drawWordCloudEntryBoundingBox(entry){
-	var word = d3.select(entry)
-	console.log(word)
-	word = d3.select(this)
-	console.log(word)
+	var word = d3.select(this)
+	var text = d3.select(entry)
+	var bbox = word.node().getBBox();
+	word
+	.append("rect")
+	.attr('x', bbox.x)
+  	.attr('y', bbox.y)
+  	.attr('width', bbox.width)
+  	.attr('height', bbox.height)
+	.attr('stroke', text.attr('fill'))
+	.attr('fill', 'transparent');
 }
 
 
