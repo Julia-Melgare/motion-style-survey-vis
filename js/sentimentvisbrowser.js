@@ -937,7 +937,7 @@ function drawWordCloudEntryBoundingBox(entry){
   	.attr('height', bbox.height)
 	.attr('stroke', 'black')
 	.attr('fill', 'black');
-	rect[0][0].transform.baseVal.initialize(rect.ownerSVGElement.createSVGTransformFromMatrix(ctm))
+	rect[0][0].transform.baseVal.initialize(rect[0][0].ownerSVGElement.createSVGTransformFromMatrix(ctm))
 }
 
 
