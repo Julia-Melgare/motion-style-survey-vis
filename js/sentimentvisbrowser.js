@@ -929,7 +929,7 @@ function getWordCloudEntryDescription(entry){
 function drawWordCloudEntryBoundingBox(entry){
 	var word = d3.select(this)
 	var bbox = word.node().getBBox();
-	var ctm = word.node().getCtm();
+	var ctm = word.node().getCTM();
 	var rect = word.append("rect")
 	.attr('x', bbox.x)
   	.attr('y', bbox.y)
