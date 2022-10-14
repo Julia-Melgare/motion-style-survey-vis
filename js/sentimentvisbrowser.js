@@ -897,10 +897,12 @@ function drawWords(words){
 			   .data(words, d => d.text);
 
 	// Update
-	text.transition()
-		.duration(750)
-		.style("font-size", function(d){ console.log("update word size:", d.text, d.size); return d.size + "px"; })
-		.attr("transform", function(d){ return "translate(" + [d.x, d.y] +")rotate(" + d.rotate + ")"});
+	text
+		.attr("title", getWordCloudEntryDescription)
+		.transition()
+			.duration(750)
+			.style("font-size", function(d){ console.log("update word size:", d.text, d.size); return d.size + "px"; })
+			.attr("transform", function(d){ return "translate(" + [d.x, d.y] +")rotate(" + d.rotate + ")"});
 
 	// Create
 	text.enter().append("text")
