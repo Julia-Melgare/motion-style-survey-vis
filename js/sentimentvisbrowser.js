@@ -1106,6 +1106,7 @@ function updateWordCloud(eligibleEntries) {
 
 // Secondary draw function for updating word cloud
 function drawWordCloudUpdate(words){
+	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#bcbd22","#17becf", "#69b3a2"]
 	var text = d3.select("g").selectAll("text")
 			   .data(words, function(d) {return d.text});
 
@@ -1122,7 +1123,7 @@ function drawWordCloudUpdate(words){
 		.append("text")
 		.style("font-size", function(d) { return d.size + "px"; })
 		.style("font-family", "Trebuchet MS")
-		.style("fill", function(d, i) { return fill(i); })
+		.style("fill", function(d, i) { return colors[i]; })
 		.attr("text-anchor", "middle")
 		.attr("transform", function(d) {
 			return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
