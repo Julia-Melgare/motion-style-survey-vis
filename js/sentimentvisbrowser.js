@@ -849,7 +849,7 @@ function prepareWordCloudData(){
 			}			
 		});
 	});
-	wordCount = sort_object(wordCount)
+	wordCount = sortObject(wordCount)
 	wordCloudDict = wordCount
 	for (const [k, v] of Object.entries(wordCount)) {
 		wordCloudData.push({text: k, size: v})
@@ -1034,6 +1034,7 @@ function updateDisplayedEntries(){
 	updateDisplayedCount();
 	
 	updateTimeChart(eligibleEntries);
+	updateWordCloud(eligibleEntries);
 }
 
 
@@ -1074,6 +1075,66 @@ function updateTimeChart(eligibleEntries) {
 	});
 }
 
+// Updates word cloud
+function updateWordCloud(eligibleEntries) {
+	var wordStats = {}
+	$.each(eligibleEntries, function(i,d) {
+		var titleWords = d.title.split(" ");
+		titleWords.forEach(w => {
+			var word = w.toLowerCase().replace(/[():]/g, '')
+			if (word.length > 3 && word.toLowerCase() != "with" && word.toLowerCase() != "from"){
+				if (!wordStats[word])
+					wordStats[word] = 0;
+				wordStats[word] += 1;
+			}			
+		});	
+	});
+	wordStats = sortObject(wordStats)
+	var updatedWordCloudData = []
+	for (const [k, v] of Object.entries(wordStats)) {
+		updatedWordCloudData.push({text: k, size: v})
+	}
+
+	wordCloudLayout
+		.stop()
+		.words(updatedWordCloudData.map(function(d){
+			return {text : d.text, size : normalizeSize(d.size)}
+		  }))
+		.on("end", drawWordCloudUpdate)
+		.start();
+}
+
+// Secondary draw function for updating word cloud
+function drawWordCloudUpdate(words){
+	var text = d3.select("g").selectAll("text")
+			   .data(words, function(d) {return d.text});
+
+	// Update
+	text.transition()
+	.duration(750)
+	.style("font-size", function(d){ console.log( "update word size:", d.size); return d.size + "px"; })
+	.attr("transform", function(d){ 
+	  return "translate(" + [d.x, d.y] +")rotate(" + d.rotate + ")"
+	});
+
+	// Create
+	text.enter()
+		.append("text")
+		.style("font-size", function(d) { return d.size + "px"; })
+		.style("font-family", "Trebuchet MS")
+		.style("fill", function(d, i) { return fill(i); })
+		.attr("text-anchor", "middle")
+		.attr("transform", function(d) {
+			return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+		})
+		.text(function(d) { return d.text; });
+
+	// Delete
+	text.exit().transition()
+		.duration(750)
+		.style("fill-opacity", 1e-6)
+		.remove();
+}
 
 // Checks if current entry is relevant to the current search text
 function isRelevantToSearch(entry){
@@ -1435,7 +1496,7 @@ function onSummaryEntryLinkClick(){
 	return false;
 }
 
-function sort_object(obj) {
+function sortObject(obj) {
     var items = Object.keys(obj).map(function(key) {
         return [key, obj[key]];
     });
