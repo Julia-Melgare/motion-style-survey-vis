@@ -877,7 +877,7 @@ function renderWordCloud(){
 	wordCloudSvg
     .append("g")
 	.classed("word-cloud-g", true)
-    .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")");
+    .attr("transform", "translate(" + canvasWidth/2 + "," + canvasHeight/2 + ")");
 
 	wordCloudLayout = d3.layout.cloud()
 		.random(random)
