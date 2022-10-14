@@ -1049,7 +1049,6 @@ function updateDisplayedEntries(){
 	
 	updateTimeChart(eligibleEntries);
 	updateWordCloud(eligibleEntries);
-	console.log(eligibleEntries)
 }
 
 
@@ -1105,6 +1104,7 @@ function updateWordCloud(eligibleEntries) {
 		});	
 	});
 	wordStats = sortObject(wordStats)
+	wordCloudDict = wordStats
 	var updatedWordCloudData = []
 	for (const [k, v] of Object.entries(wordStats)) {
 		updatedWordCloudData.push({text: k, size: v})
