@@ -874,6 +874,11 @@ function renderWordCloud(){
 	.attr("width", outerWidth + "px")
 	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
 
+	wordCloudSvg
+    .append("g")
+	.classed("word-cloud-g", true)
+    .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")");
+
 	wordCloudLayout = d3.layout.cloud()
 		.random(random)
 		.size([canvasWidth, canvasHeight])
@@ -887,25 +892,34 @@ function renderWordCloud(){
 //
 function drawWords(words){
 	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#bcbd22","#17becf", "#69b3a2"]
-	wordCloudSvg
-    .append("g")
-	  .classed("word-cloud-g", true)
-      .attr("transform", "translate(" + wordCloudLayout.size()[0]/2 + "," + wordCloudLayout.size()[1]/2 + ")")
-      .selectAll("text")
-      .data(words)
-      .enter().append("text")
-	    .classed("word-cloud-text", true)
-        .style("font-size", function(d) { return d.size; })
-        .style("fill", function(d) { return colors[Math.floor(random()*colors.length)]; })
-        .attr("text-anchor", "middle")
-        .style("font-family", "Trebuchet MS")
+
+	var text = d3.select("g.word-cloud-g").selectAll("text")
+			   .data(words, d => d.text);
+
+	// Update
+	text.transition()
+		.duration(750)
+		.style("font-size", function(d){ console.log("update word size:", d.text, d.size); return d.size + "px"; })
+		.attr("transform", function(d){ return "translate(" + [d.x, d.y] +")rotate(" + d.rotate + ")"});
+
+	// Create
+	text.enter().append("text")
+		.classed("word-cloud-text", true)
+		.style("font-size", function(d) { return d.size; })
+		.style("fill", function(d) { return colors[Math.floor(random()*colors.length)]; })
+		.attr("text-anchor", "middle")
+		.style("font-family", "Trebuchet MS")
 		.style("font-weight", "bold")
-        .attr("transform", function(d) {
-          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
+		.attr("transform", function(d) { return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";})
 		.attr("title", getWordCloudEntryDescription)
 		//.on("mouseover", drawWordCloudEntryBoundingBox)
-        .text(function(d) { return d.text; });
+		.text(function(d) { return d.text; });
+
+	// Delete
+	text.exit().transition()
+		.duration(750)
+		.style("fill-opacity", 1e-6)
+		.remove();        
 }
 
 function normalizeSize(x){
@@ -1035,6 +1049,7 @@ function updateDisplayedEntries(){
 	
 	updateTimeChart(eligibleEntries);
 	updateWordCloud(eligibleEntries);
+	console.log(eligibleEntries)
 }
 
 
@@ -1097,44 +1112,8 @@ function updateWordCloud(eligibleEntries) {
 
 	wordCloudLayout
 		.stop()
-		.words(updatedWordCloudData.map(function(d){
-			return {text : d.text, size : normalizeSize(d.size)}
-		  }))
-		.on("end", drawWordCloudUpdate)
+		.words(updatedWordCloudData)
 		.start();
-}
-
-// Secondary draw function for updating word cloud
-function drawWordCloudUpdate(words){
-	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#bcbd22","#17becf", "#69b3a2"]
-	var text = d3.select("g.word-cloud-g").selectAll("text")
-			   .data(words, function(d) {return d.text});
-
-	// Update
-	text.transition()
-	.duration(750)
-	.style("font-size", function(d){ console.log( "update word size:", d.size); return d.size + "px"; })
-	.attr("transform", function(d){ 
-	  return "translate(" + [d.x, d.y] +")rotate(" + d.rotate + ")"
-	});
-
-	// Create
-	text.enter()
-		.append("text")
-		.style("font-size", function(d) { return d.size + "px"; })
-		.style("font-family", "Trebuchet MS")
-		.style("fill", function(d, i) { return colors[i]; })
-		.attr("text-anchor", "middle")
-		.attr("transform", function(d) {
-			return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-		})
-		.text(function(d) { return d.text; });
-
-	// Delete
-	text.exit().transition()
-		.duration(750)
-		.style("fill-opacity", 1e-6)
-		.remove();
 }
 
 // Checks if current entry is relevant to the current search text
