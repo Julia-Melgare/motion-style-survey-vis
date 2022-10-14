@@ -1107,7 +1107,7 @@ function updateWordCloud(eligibleEntries) {
 // Secondary draw function for updating word cloud
 function drawWordCloudUpdate(words){
 	var colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#bcbd22","#17becf", "#69b3a2"]
-	var text = d3.select("g").selectAll("text")
+	var text = d3.select("word-cloud-g").selectAll("text")
 			   .data(words, function(d) {return d.text});
 
 	// Update
