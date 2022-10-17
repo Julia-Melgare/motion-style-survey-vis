@@ -1018,7 +1018,7 @@ function renderLollipopChart(){
 		.attr("stroke", "grey")
 
 	// Add circles -> start at X=0
-	svg.selectAll("lollipop-circle")
+	lollipopChartSvg.selectAll("lollipop-circle")
 	.data(wordCloudData)
 	.enter()
 	.append("circle")
@@ -1028,12 +1028,12 @@ function renderLollipopChart(){
 	.style("fill", "#17becf")
 
 	// Change the X coordinates of line and circle
-	svg.selectAll("circle")
+	lollipopChartSvg.selectAll("circle")
 	.transition()
 	.duration(2000)
 	.attr("cx", function(d) { return lollipopChartXScale(d.size); })
 
-	svg.selectAll("line")
+	lollipopChartSvg.selectAll("line")
 	.transition()
 	.duration(2000)
 	.attr("x1", function(d) { return lollipopChartXScale(d.size); })
