@@ -994,18 +994,18 @@ function renderLollipopChart(){
 	.range([ 0, canvasWidth]);
 	lollipopChartSvg.append("g")
 	.attr("transform", "translate(0," + canvasHeight + ")")
-	.call(d3.axisBottom(lollipopChartXScale))
+	.call(d3.svg.axis().scale(lollipopChartXScale).orient("bottom"))
 	.selectAll("text")
 	  .attr("transform", "translate(-10,0)rotate(-45)")
 	  .style("text-anchor", "end");
 	
 	// Add Y scale
 	lollipopChartYScale = d3.scale.ordinal()
-	.range([ 0, height ])
+	.range([ 0, canvasHeight ])
 	.domain(wordCloudData.map(function(d) { return d.text; }))
 	.padding(1);
   	lollipopChartSvg.append("g")
-	.call(d3.axisLeft(lollipopChartYScale))
+	.call(d3.svg.axis().scale(lollipopChartYScale).orient("left"))
 
 	// Add lines
 	lollipopChartSvg.selectAll("lollipop-line")
