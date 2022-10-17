@@ -968,9 +968,31 @@ function drawWordCloudEntryBoundingBox(entry){
 	rect[0][0].transform.baseVal.initialize(rect[0][0].ownerSVGElement.createSVGTransformFromMatrix(ctm))
 }
 
+// Prepares word data for lollipop chart
+function prepareLollipopChartData(){
+	var wordCount = {}
+	var lollipopChartData = []
+	$.each(entriesMap, function(k, v){
+		var titleWords = v.title.split(" ");
+		titleWords.forEach(w => {
+			var word = w.toLowerCase().replace(/[():]/g, '')
+			if (word.length > 3 && word.toLowerCase() != "with" && word.toLowerCase() != "from"){
+				if (!wordCount[word])
+					wordCount[word] = 0;
+				wordCount[word] += 1;
+			}			
+		});
+	});
+	wordCount = sortObject(wordCount)
+	for (const [k, v] of Object.entries(wordCount)) {
+		lollipopChartData.push({text: k, size: v})
+	}
+	return lollipopChartData.slice(0, 10); //return only top 10 results
+}
+
 // Renders lollipop chart for word ranking
 function renderLollipopChart(){
-	lollipopChartData = wordCloudData.slice(0, 10);
+	lollipopChartData = prepareLollipopChartData();
 	var margin = {top: 1, right: 3, bottom: 4, left: 10};	
 	var outerWidth = Math.round($("#lollipopChart").width());
 	var outerHeight = Math.round($("#lollipopChart").height());	
@@ -1003,14 +1025,14 @@ function renderLollipopChart(){
 	// Add Y scale
 	lollipopChartYScale = d3v4.scaleBand()
 	.range([ 0, canvasHeight ])
-	.domain(wordCloudData.map(function(d) { return d.text; }))
+	.domain(lollipopChartData.map(function(d) { return d.text; }))
 	.padding(1);
   	lollipopChartSvg.append("g")
 	.call(d3v4.axisLeft(lollipopChartYScale))
 
 	// Add lines
 	lollipopChartSvg.selectAll("lollipop-line")
-	.data(wordCloudData)
+	.data(lollipopChartData)
 	.enter()
 	.append("line")
 		.attr("x1", lollipopChartXScale(0))
@@ -1021,7 +1043,7 @@ function renderLollipopChart(){
 
 	// Add circles -> start at X=0
 	lollipopChartSvg.selectAll("lollipop-circle")
-	.data(wordCloudData)
+	.data(lollipopChartData)
 	.enter()
 	.append("circle")
 	.attr("cx", lollipopChartXScale(0) )
