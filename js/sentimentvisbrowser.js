@@ -935,10 +935,11 @@ function normalizeSize(x){
 // Creates the text description for words in the cloud
 function getWordCloudEntryDescription(entry){
 	var occurrences = " occurrence"
-	console.log(entry.text, wordCloudDict[entry.text])
-	if ( wordCloudDict[entry.text] > 1 )
+	var wordCount = wordCloudDict[entry.text]
+	console.log(entry.text, wordCount)
+	if ( wordCount > 1 )
 		occurrences = occurrences.concat("s")
-	return "\"" + entry.text + "\": " + wordCloudDict[entry.text] + occurrences;
+	return "\"" + entry.text + "\": " + wordCount + occurrences;
 }
 
 
