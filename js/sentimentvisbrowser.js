@@ -899,6 +899,8 @@ function drawWords(words){
 	// Update
 	text
 		.attr("title", getWordCloudEntryDescription)
+		// Force Bootstrap tooltip update
+		group.attr("data-original-title", getWordCloudEntryDescription)
 		.transition()
 			.duration(750)
 			.style("font-size", function(d){ console.log("update word size:", d.text, d.size); return d.size + "px"; })
