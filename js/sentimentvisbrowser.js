@@ -1001,7 +1001,7 @@ function renderLollipopChart(){
 	
 	// Add Y scale
 	lollipopChartYScale = d3v4.scaleBand()
-	.range([ 0, height ])
+	.range([ 0, canvasHeight ])
 	.domain(wordCloudData.map(function(d) { return d.text; }))
 	.padding(1);
   	lollipopChartSvg.append("g")
