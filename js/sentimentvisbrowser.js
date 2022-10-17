@@ -1003,7 +1003,6 @@ function renderLollipopChart(){
 	lollipopChartYScale = d3.scale.ordinal()
 	.range([ 0, canvasHeight ])
 	.domain(wordCloudData.map(function(d) { return d.text; }))
-	.padding(1);
   	lollipopChartSvg.append("g")
 	.call(d3.svg.axis().scale(lollipopChartYScale).orient("left"))
 
