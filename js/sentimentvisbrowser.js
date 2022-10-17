@@ -970,7 +970,8 @@ function drawWordCloudEntryBoundingBox(entry){
 
 // Renders lollipop chart for word ranking
 function renderLollipopChart(){
-	var margin = { top: 1, right: 1, bottom: 1, left: 1};	
+	lollipopChartData = wordCloudData.slice(0, 10);
+	var margin = {top: 1, right: 3, bottom: 4, left: 10};	
 	var outerWidth = Math.round($("#lollipopChart").width());
 	var outerHeight = Math.round($("#lollipopChart").height());	
 	var canvasHeight = outerHeight - margin.top - margin.bottom;
