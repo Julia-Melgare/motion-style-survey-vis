@@ -976,7 +976,7 @@ function renderLollipopChart(){
 	var canvasHeight = outerHeight - margin.top - margin.bottom;
 	var canvasWidth = outerWidth - margin.left - margin.right;
 
-	lollipopChartSvg = d3.select($("#lollipopChart").get(0)).append("svg:svg")
+	lollipopChartSvg = d3v4.select($("#lollipopChart").get(0)).append("svg:svg")
 	.attr("id", "lollipopChartSvg")
 	.classed("svg-vis", true)
 	.attr("height", outerHeight + "px")
@@ -989,22 +989,23 @@ function renderLollipopChart(){
 	.attr("transform", "translate(" + canvasWidth + "," + canvasHeight + ")");
 
 	// Add X scale
-	lollipopChartXScale = d3.scale.linear()
+	lollipopChartXScale = d3v4.scaleLinear()
 	.domain([0, 30])
 	.range([ 0, canvasWidth]);
 	lollipopChartSvg.append("g")
 	.attr("transform", "translate(0," + canvasHeight + ")")
-	.call(d3.svg.axis().scale(lollipopChartXScale).orient("bottom"))
+	.call(d3v4.axisBottom(lollipopChartXScale))
 	.selectAll("text")
 	  .attr("transform", "translate(-10,0)rotate(-45)")
 	  .style("text-anchor", "end");
 	
 	// Add Y scale
-	lollipopChartYScale = d3.scale.ordinal()
-	.range([ 0, canvasHeight ])
+	lollipopChartYScale = d3v4.scaleBand()
+	.range([ 0, height ])
 	.domain(wordCloudData.map(function(d) { return d.text; }))
+	.padding(1);
   	lollipopChartSvg.append("g")
-	.call(d3.svg.axis().scale(lollipopChartYScale).orient("left"))
+	.call(d3v4.axisLeft(lollipopChartYScale))
 
 	// Add lines
 	lollipopChartSvg.selectAll("lollipop-line")
