@@ -993,7 +993,7 @@ function prepareLollipopChartData(){
 // Renders lollipop chart for word ranking
 function renderLollipopChart(){
 	lollipopChartData = prepareLollipopChartData();
-	var margin = {top: 10, right: 10, bottom: 20, left: 12};	
+	var margin = {top: 15, right: 10, bottom: 15, left: 12};	
 	var outerWidth = Math.round($("#lollipopChart").width());
 	var outerHeight = Math.round($("#lollipopChart").height());	
 	var canvasHeight = outerHeight - margin.top - margin.bottom;
