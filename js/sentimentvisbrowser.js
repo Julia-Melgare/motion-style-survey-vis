@@ -989,7 +989,7 @@ function renderLollipopChart(){
 	.attr("transform", "translate(" + canvasWidth + "," + canvasHeight + ")");
 
 	// Add X scale
-	lollipopChartXScale = d3.scaleLinear()
+	lollipopChartXScale = d3.scale.linear()
 	.domain([0, 30])
 	.range([ 0, canvasWidth]);
 	lollipopChartSvg.append("g")
@@ -1000,7 +1000,7 @@ function renderLollipopChart(){
 	  .style("text-anchor", "end");
 	
 	// Add Y scale
-	lollipopChartYScale = d3.scaleBand()
+	lollipopChartYScale = d3.scale.ordinal()
 	.range([ 0, height ])
 	.domain(wordCloudData.map(function(d) { return d.text; }))
 	.padding(1);
