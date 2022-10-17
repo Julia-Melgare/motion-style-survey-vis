@@ -993,7 +993,7 @@ function prepareLollipopChartData(){
 // Renders lollipop chart for word ranking
 function renderLollipopChart(){
 	lollipopChartData = prepareLollipopChartData();
-	var margin = {top: 1, right: 3, bottom: 4, left: 10};	
+	var margin = {top: 10, right: 30, bottom: 40, left: 100};	
 	var outerWidth = Math.round($("#lollipopChart").width());
 	var outerHeight = Math.round($("#lollipopChart").height());	
 	var canvasHeight = outerHeight - margin.top - margin.bottom;
@@ -1004,12 +1004,11 @@ function renderLollipopChart(){
 	.classed("svg-vis", true)
 	.attr("height", outerHeight + "px")
 	.attr("width", outerWidth + "px")
-	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
 
 	lollipopChartSvg
     .append("g")
 	.classed("lollipop-chart-g", true)
-	.attr("transform", "translate(" + canvasWidth + "," + canvasHeight + ")");
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	// Add X scale
 	lollipopChartXScale = d3v4.scaleLinear()
@@ -1026,7 +1025,7 @@ function renderLollipopChart(){
 	lollipopChartYScale = d3v4.scaleBand()
 	.range([ 0, canvasHeight ])
 	.domain(lollipopChartData.map(function(d) { return d.text; }))
-	.padding(1);
+	.padding(0.1);
   	lollipopChartSvg.append("g")
 	.call(d3v4.axisLeft(lollipopChartYScale))
 
