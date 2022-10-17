@@ -485,3 +485,10 @@ hr {
 	height: 200px;
 	margin-top: 10px;
 }
+
+#lollipopChart {
+	min-height: 50px;
+	max-height: 200px;
+	height: 200px;
+	margin-top: 10px;
+}

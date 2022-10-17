@@ -49,6 +49,13 @@ var wordCloudMinFontSize = 5;
 var wordCloudDict = {};
 var wordCloudData;
 
+// References to the lollipop chart-related objects
+var lollipopChartSvg;
+var lollipopChartXScale;
+var lollipopChartYScale;
+var lollipopChartHeight;
+var lollipopChartData;
+
 // Custom random number generator
 var makeRandom = function(seed) {
     return function() {
@@ -466,6 +473,7 @@ function loadContent(){
 		
 		renderTimeChart();
 		renderWordCloud();
+		renderLollipopChart();
 		
 		configureTimeFilter();
 		
@@ -960,6 +968,77 @@ function drawWordCloudEntryBoundingBox(entry){
 	rect[0][0].transform.baseVal.initialize(rect[0][0].ownerSVGElement.createSVGTransformFromMatrix(ctm))
 }
 
+// Renders lollipop chart for word ranking
+function renderLollipopChart(){
+	var margin = { top: 1, right: 1, bottom: 1, left: 1};	
+	var outerWidth = Math.round($("#lollipopChart").width());
+	var outerHeight = Math.round($("#lollipopChart").height());	
+	var canvasHeight = outerHeight - margin.top - margin.bottom;
+	var canvasWidth = outerWidth - margin.left - margin.right;
+
+	lollipopChartSvg = d3.select($("#lollipopChart").get(0)).append("svg:svg")
+	.attr("id", "lollipopChartSvg")
+	.classed("svg-vis", true)
+	.attr("height", outerHeight + "px")
+	.attr("width", outerWidth + "px")
+	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
+
+	lollipopChartSvg
+    .append("g")
+	.classed("lollipop-chart-g", true)
+	.attr("transform", "translate(" + canvasWidth + "," + canvasHeight + ")");
+
+	// Add X scale
+	lollipopChartXScale = d3.scaleLinear()
+	.domain([0, 30])
+	.range([ 0, canvasWidth]);
+	lollipopChartSvg.append("g")
+	.attr("transform", "translate(0," + canvasHeight + ")")
+	.call(d3.axisBottom(lollipopChartXScale))
+	.selectAll("text")
+	  .attr("transform", "translate(-10,0)rotate(-45)")
+	  .style("text-anchor", "end");
+	
+	// Add Y scale
+	lollipopChartYScale = d3.scaleBand()
+	.range([ 0, height ])
+	.domain(wordCloudData.map(function(d) { return d.text; }))
+	.padding(1);
+  	lollipopChartSvg.append("g")
+	.call(d3.axisLeft(lollipopChartYScale))
+
+	// Add lines
+	lollipopChartSvg.selectAll("lollipop-line")
+	.data(wordCloudData)
+	.enter()
+	.append("line")
+		.attr("x1", lollipopChartXScale(0))
+		.attr("x2", lollipopChartXScale(0))
+		.attr("y1", function(d) { return lollipopChartYScale(d.text); })
+		.attr("y2", function(d) { return lollipopChartYScale(d.text); })
+		.attr("stroke", "grey")
+
+	// Add circles -> start at X=0
+	svg.selectAll("lollipop-circle")
+	.data(wordCloudData)
+	.enter()
+	.append("circle")
+	.attr("cx", lollipopChartXScale(0) )
+	.attr("cy", function(d) { return lollipopChartYScale(d.text); })
+	.attr("r", "7")
+	.style("fill", "#17becf")
+
+	// Change the X coordinates of line and circle
+	svg.selectAll("circle")
+	.transition()
+	.duration(2000)
+	.attr("cx", function(d) { return lollipopChartXScale(d.size); })
+
+	svg.selectAll("line")
+	.transition()
+	.duration(2000)
+	.attr("x1", function(d) { return lollipopChartXScale(d.size); })
+}
 
 // Updates the set of displayed entries based on current filter values
 function updateDisplayedEntries(){
