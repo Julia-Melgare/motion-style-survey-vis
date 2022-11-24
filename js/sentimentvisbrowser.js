@@ -1037,8 +1037,8 @@ function renderLollipopChart(){
 	.append("line")
 		.attr("x1", lollipopChartXScale(0))
 		.attr("x2", lollipopChartXScale(0))
-		.attr("y1", function(d) { return lollipopChartYScale(d.text) + 10; })
-		.attr("y2", function(d) { return lollipopChartYScale(d.text) + 10; })
+		.attr("y1", function(d) { return lollipopChartYScale(d.text) + 11; })
+		.attr("y2", function(d) { return lollipopChartYScale(d.text) + 11; })
 		.attr("stroke", "grey")
 
 	// Add circles -> start at X=0
@@ -1047,7 +1047,7 @@ function renderLollipopChart(){
 	.enter()
 	.append("circle")
 	.attr("cx", lollipopChartXScale(0) )
-	.attr("cy", function(d) { return lollipopChartYScale(d.text) + 10; })
+	.attr("cy", function(d) { return lollipopChartYScale(d.text) + 11; })
 	.attr("r", "4")
 	.style("fill", "#17becf")
 
