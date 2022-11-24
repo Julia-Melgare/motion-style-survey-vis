@@ -993,7 +993,7 @@ function prepareLollipopChartData(){
 // Renders lollipop chart for word ranking
 function renderLollipopChart(){
 	lollipopChartData = prepareLollipopChartData();
-	var margin = {top: 1, right: 1, bottom: 25, left: 75};	
+	var margin = {top: 1, right: 1, bottom: 25, left: 50};	
 	var outerWidth = Math.round($("#lollipopChart").width());
 	var outerHeight = Math.round($("#lollipopChart").height());	
 	var canvasHeight = outerHeight - margin.top - margin.bottom;
@@ -1006,7 +1006,7 @@ function renderLollipopChart(){
 	.attr("width", outerWidth + "px")
 	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
 
-	lollipopChartSvg
+	var frame = lollipopChartSvg
     .append("g")
 	.classed("lollipop-chart-g", true)
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -1015,8 +1015,8 @@ function renderLollipopChart(){
 	lollipopChartXScale = d3v4.scaleLinear()
 	.domain([0, 30])
 	.range([0, canvasWidth]);
-	lollipopChartSvg.append("g")
-	.attr("transform", "translate(" + margin.left + "," +  canvasHeight + ")")
+	frame.append("g")
+	.attr("transform", "translate(0," +  canvasHeight + ")")
 	.call(d3v4.axisBottom(lollipopChartXScale))
 	.selectAll("text")
 	  .attr("transform", "translate(-10,0)rotate(-45)")
@@ -1027,12 +1027,12 @@ function renderLollipopChart(){
 	.range([0, canvasHeight])
 	.domain(lollipopChartData.map(function(d) { return d.text; }))
 	.padding(0.1);
-  	lollipopChartSvg.append("g")
-	.attr("transform", "translate(" + margin.left + ",0)" )
+  	frame.append("g")
+	//.attr("transform", "translate(" + margin.left + ",0)" )
 	.call(d3v4.axisLeft(lollipopChartYScale))
 
 	// Add lines
-	lollipopChartSvg.selectAll("lollipop-line")
+	frame.selectAll("lollipop-line")
 	.data(lollipopChartData)
 	.enter()
 	.append("line")
@@ -1043,7 +1043,7 @@ function renderLollipopChart(){
 		.attr("stroke", "grey")
 
 	// Add circles -> start at X=0
-	lollipopChartSvg.selectAll("lollipop-circle")
+	frame.selectAll("lollipop-circle")
 	.data(lollipopChartData)
 	.enter()
 	.append("circle")
@@ -1053,12 +1053,12 @@ function renderLollipopChart(){
 	.style("fill", "#17becf")
 
 	// Change the X coordinates of line and circle
-	lollipopChartSvg.selectAll("circle")
+	frame.selectAll("circle")
 	.transition()
 	.duration(2000)
 	.attr("cx", function(d) { return lollipopChartXScale(d.size); })
 
-	lollipopChartSvg.selectAll("line")
+	frame.selectAll("line")
 	.transition()
 	.duration(2000)
 	.attr("x1", function(d) { return lollipopChartXScale(d.size); })
