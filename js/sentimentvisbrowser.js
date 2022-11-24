@@ -993,7 +993,7 @@ function prepareLollipopChartData(){
 // Renders lollipop chart for word ranking
 function renderLollipopChart(){
 	lollipopChartData = prepareLollipopChartData();
-	var margin = {top: 1, right: 1, bottom: 1, left: 1};	
+	var margin = {top: 1, right: 1, bottom: 20, left: 75};	
 	var outerWidth = Math.round($("#lollipopChart").width());
 	var outerHeight = Math.round($("#lollipopChart").height());	
 	var canvasHeight = outerHeight - margin.top - margin.bottom;
@@ -1014,7 +1014,7 @@ function renderLollipopChart(){
 	// Add X scale
 	lollipopChartXScale = d3v4.scaleLinear()
 	.domain([0, 30])
-	.range([ 0, canvasWidth]);
+	.range([0, canvasWidth]);
 	lollipopChartSvg.append("g")
 	.attr("transform", "translate(0," + canvasHeight + ")")
 	.call(d3v4.axisBottom(lollipopChartXScale))
@@ -1024,7 +1024,7 @@ function renderLollipopChart(){
 	
 	// Add Y scale
 	lollipopChartYScale = d3v4.scaleBand()
-	.range([ 0, canvasHeight ])
+	.range([0, canvasHeight])
 	.domain(lollipopChartData.map(function(d) { return d.text; }));
 	//.padding(0.1);
   	lollipopChartSvg.append("g")
