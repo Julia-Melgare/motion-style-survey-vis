@@ -473,7 +473,7 @@ function loadContent(){
 		
 		renderTimeChart();
 		renderWordCloud();
-		//renderLollipopChart();
+		renderLollipopChart();
 		
 		configureTimeFilter();
 		
