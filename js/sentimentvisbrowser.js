@@ -1003,7 +1003,7 @@ function renderLollipopChart(){
 	.attr("id", "lollipopChartSvg")
 	.classed("svg-vis", true)
 	.attr("height", outerHeight + "px")
-	.attr("width", outerWidth + "px");
+	.attr("width", outerWidth + "px")
 	.attr("clip", [margin.top, outerWidth - margin.right, outerHeight - margin.bottom, margin.left].join(" "));
 
 	lollipopChartSvg
