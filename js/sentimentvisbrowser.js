@@ -993,7 +993,7 @@ function prepareLollipopChartData(){
 // Renders lollipop chart for word ranking
 function renderLollipopChart(){
 	lollipopChartData = prepareLollipopChartData();
-	var margin = {top: 1, right: 1, bottom: 25, left: 50};	
+	var margin = {top: 1, right: 1, bottom: 25, left: 60};	
 	var outerWidth = Math.round($("#lollipopChart").width());
 	var outerHeight = Math.round($("#lollipopChart").height());	
 	var canvasHeight = outerHeight - margin.top - margin.bottom;
@@ -1028,7 +1028,6 @@ function renderLollipopChart(){
 	.domain(lollipopChartData.map(function(d) { return d.text; }))
 	.padding(0.1);
   	frame.append("g")
-	//.attr("transform", "translate(" + margin.left + ",0)" )
 	.call(d3v4.axisLeft(lollipopChartYScale))
 
 	// Add lines
@@ -1038,8 +1037,8 @@ function renderLollipopChart(){
 	.append("line")
 		.attr("x1", lollipopChartXScale(0))
 		.attr("x2", lollipopChartXScale(0))
-		.attr("y1", function(d) { return lollipopChartYScale(d.text); })
-		.attr("y2", function(d) { return lollipopChartYScale(d.text); })
+		.attr("y1", function(d) { return lollipopChartYScale(d.text) + 0.1; })
+		.attr("y2", function(d) { return lollipopChartYScale(d.text) + 0.1; })
 		.attr("stroke", "grey")
 
 	// Add circles -> start at X=0
@@ -1048,7 +1047,7 @@ function renderLollipopChart(){
 	.enter()
 	.append("circle")
 	.attr("cx", lollipopChartXScale(0) )
-	.attr("cy", function(d) { return lollipopChartYScale(d.text); })
+	.attr("cy", function(d) { return lollipopChartYScale(d.text) + 0.1; })
 	.attr("r", "4")
 	.style("fill", "#17becf")
 
