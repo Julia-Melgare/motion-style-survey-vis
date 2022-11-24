@@ -1009,14 +1009,14 @@ function renderLollipopChart(){
 	lollipopChartSvg
     .append("g")
 	.classed("lollipop-chart-g", true)
-	.attr("transform", "translate(" + -margin.left + "," + margin.top + ")");
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	// Add X scale
 	lollipopChartXScale = d3v4.scaleLinear()
 	.domain([0, 30])
 	.range([0, canvasWidth]);
 	lollipopChartSvg.append("g")
-	.attr("transform", "translate(0," + canvasHeight + ")")
+	.attr("transform", "translate(" + margin.left + "," +  canvasHeight + ")")
 	.call(d3v4.axisBottom(lollipopChartXScale))
 	.selectAll("text")
 	  .attr("transform", "translate(-10,0)rotate(-45)")
@@ -1028,6 +1028,7 @@ function renderLollipopChart(){
 	.domain(lollipopChartData.map(function(d) { return d.text; }))
 	.padding(0.1);
   	lollipopChartSvg.append("g")
+	.attr("transform", "translate(" + margin.left + ",0)" )
 	.call(d3v4.axisLeft(lollipopChartYScale))
 
 	// Add lines
