@@ -1014,8 +1014,9 @@ function renderLollipopChart(){
 
 	// Add X scale
 	var wordSizes = lollipopChartData.map(function(d) { return d.size; })
+	var xLim = closestMultiple(Math.max(...wordSizes), 5)
 	lollipopChartXScale = d3v4.scaleLinear()
-	.domain([0, closestMultiple(Math.max(...wordSizes), 5)])
+	.domain([0, xLim])
 	.range([0, canvasWidth]);
 	lollipopChartXScaleGraph = frame.append("g")
 	.attr("transform", "translate(0," +  canvasHeight + ")")
@@ -1251,8 +1252,12 @@ function updateLollipopChart(eligibleEntries) {
 
 	// Update X-Axis
 	var wordSizes = lollipopChartData.map(function(d) { return d.size; })
-	lollipopChartXScale.domain([0, closestMultiple(Math.max(...wordSizes), 5)])
+	var xLim = closestMultiple(Math.max(...wordSizes), 5)
+	lollipopChartXScale.domain([0, xLim])
 	lollipopChartXScaleGraph.transition().duration(1000).call(d3v4.axisBottom(lollipopChartXScale))
+	.selectAll("text")
+	  .attr("transform", "translate(-10,0)rotate(-45)")
+	  .style("text-anchor", "end");
 
 	// Update Y-Axis
 	lollipopChartYScale.domain(lollipopChartData.map(function(d) { return d.text; }))
