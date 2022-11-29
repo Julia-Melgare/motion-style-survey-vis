@@ -1255,11 +1255,13 @@ function updateLollipopChart(eligibleEntries) {
 	var frame = d3.select("g.lollipop-chart-g");
 
 	frame.selectAll("circle")
+	.data(lollipopChartData)
 	.transition()
 	.duration(2000)
 	.attr("cx", function(d) { return lollipopChartXScale(d.size); })
 
 	frame.selectAll("line")
+	.data(lollipopChartData)
 	.transition()
 	.duration(2000)
 	.attr("x1", function(d) { return lollipopChartXScale(d.size); })
