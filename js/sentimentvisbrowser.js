@@ -913,7 +913,7 @@ function drawWords(words){
 		.attr("data-original-title", getWordCloudEntryDescription)
 		.transition()
 			.duration(750)
-			.style("font-size", function(d){ console.log("update word size:", d.text, d.size); return d.size + "px"; })
+			.style("font-size", function(d){ return d.size + "px"; })
 			.attr("transform", function(d){ return "translate(" + [d.x, d.y] +")rotate(" + d.rotate + ")"});
 
 	// Create
@@ -948,7 +948,6 @@ function normalizeSize(x){
 function getWordCloudEntryDescription(entry){
 	var occurrences = " occurrence"
 	var wordCount = wordCloudDict[entry.text]
-	console.log(entry.text, wordCount)
 	if ( wordCount > 1 )
 		occurrences = occurrences.concat("s")
 	return "\"" + entry.text + "\": " + wordCount + occurrences;
@@ -1042,6 +1041,7 @@ function renderLollipopChart(){
 		.attr("y1", function(d) { return lollipopChartYScale(d.text) + 12.5; })
 		.attr("y2", function(d) { return lollipopChartYScale(d.text) + 12.5; })
 		.attr("stroke", "grey")
+		.classed("lollipip-line", true)
 
 	// Add circles -> start at X=0
 	frame.selectAll("lollipop-circle")
@@ -1252,19 +1252,19 @@ function updateLollipopChart(eligibleEntries) {
 	lollipopChartYScaleGraph.transition().duration(1000).call(d3v4.axisLeft(lollipopChartYScale))
 
 	// Update line and circle positions
-	var frame = d3.select("g.lollipop-chart-g");
+	var circle = d3.select("g.lollipop-chart-g").selectAll("circle").data(lollipopChartData);
 
-	frame.selectAll("circle")
-	.data(lollipopChartData)
+	circle
 	.transition()
 	.duration(2000)
-	.attr("cx", function(d) { return lollipopChartXScale(d.size); })
+	.attr("cx", function(d) { console.log(d.text); return lollipopChartXScale(d.size); })
 
-	frame.selectAll("line")
-	.data(lollipopChartData)
+	var line = d3.select("g.lollipop-chart-g").selectAll("line").data(lollipopChartData);
+
+	line
 	.transition()
 	.duration(2000)
-	.attr("x1", function(d) { return lollipopChartXScale(d.size); })
+	.attr("x2", function(d) { console.log(d.text); return lollipopChartXScale(d.size); })
 }
 
 // Checks if current entry is relevant to the current search text
