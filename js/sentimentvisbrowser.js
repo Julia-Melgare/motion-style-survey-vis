@@ -1265,7 +1265,7 @@ function updateLollipopChart(eligibleEntries) {
 	line
 	.transition()
 	.duration(2000)
-	.attr("x2", function(d) { console.log(d.text); return lollipopChartXScale(d.size); })
+	.attr("x1", function(d) { console.log(d.text); return lollipopChartXScale(d.size); })
 }
 
 // Checks if current entry is relevant to the current search text
