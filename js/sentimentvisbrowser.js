@@ -1041,7 +1041,7 @@ function renderLollipopChart(){
 		.attr("y1", function(d) { return lollipopChartYScale(d.text) + 12.5; })
 		.attr("y2", function(d) { return lollipopChartYScale(d.text) + 12.5; })
 		.attr("stroke", "grey")
-		.classed("lollipip-line", true)
+		.classed("lollipop-line", true)
 
 	// Add circles -> start at X=0
 	frame.selectAll("lollipop-circle")
@@ -1242,6 +1242,7 @@ function updateLollipopChart(eligibleEntries) {
 		});	
 	});
 	wordStats = sortObject(wordStats)
+	lollipopChartData = []
 	for (const [k, v] of Object.entries(wordStats)) {
 		lollipopChartData.push({text: k, size: v})
 	}
@@ -1259,7 +1260,7 @@ function updateLollipopChart(eligibleEntries) {
 	.duration(2000)
 	.attr("cx", function(d) { console.log(d.text); return lollipopChartXScale(d.size); })
 
-	var line = d3.select("g.lollipop-chart-g").selectAll("line").data(lollipopChartData);
+	var line = d3.select("g.lollipop-chart-g").selectAll(".lollipop-line").data(lollipopChartData);
 
 	line
 	.transition()
