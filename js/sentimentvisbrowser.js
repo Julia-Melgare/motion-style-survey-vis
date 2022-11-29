@@ -1652,7 +1652,7 @@ function sortObject(obj) {
 function closestMultiple(n, x) {
     if (x > n)
         return x;
-    n = n + parseInt(x / 2, 10);
+    n = n + x;
     n = n - (n % x);
     return n;
 }
