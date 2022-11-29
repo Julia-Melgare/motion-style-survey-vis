@@ -1021,9 +1021,9 @@ function renderLollipopChart(){
 	lollipopChartXScaleGraph = frame.append("g")
 	.attr("transform", "translate(0," +  canvasHeight + ")")
 	.call(d3v4.axisBottom(lollipopChartXScale))
-	.selectAll("text")
-	  .attr("transform", "translate(-10,0)rotate(-45)")
-	  .style("text-anchor", "end");
+	//.selectAll("text")
+	//  .attr("transform", "translate(-10,0)rotate(-45)")
+	// .style("text-anchor", "end");
 	
 	// Add Y scale
 	lollipopChartYScale = d3v4.scaleBand()
