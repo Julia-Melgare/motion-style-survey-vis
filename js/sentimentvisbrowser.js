@@ -135,7 +135,7 @@ function updateLayoutSize() {
 
 function setupTooltips(){
 	$("body").tooltip({
-		selector: "[data-tooltip=tooltip], #timeChartSvg g.time-chart-entry.not-gap, #wordCloudSvg text.word-cloud-text",
+		selector: "[data-tooltip=tooltip], #timeChartSvg g.time-chart-entry.not-gap, #wordCloudSvg text.word-cloud-text, #lollipopChartSvg line.lollipop-line, #lollipopChartSvg circle.lollipop-circle",
         container: "body",
         placement: "auto"
     });
@@ -1035,22 +1035,25 @@ function renderLollipopChart(){
 	.data(lollipopChartData)
 	.enter()
 	.append("line")
+		.classed("lollipop-line", true)
 		.attr("x1", lollipopChartXScale(0))
 		.attr("x2", lollipopChartXScale(0))
 		.attr("y1", function(d) { return lollipopChartYScale(d.text) + 12.5; })
 		.attr("y2", function(d) { return lollipopChartYScale(d.text) + 12.5; })
 		.attr("stroke", "grey")
-		.classed("lollipop-line", true)
+		.attr("title", getWordCloudEntryDescription)
 
 	// Add circles -> start at X=0
 	frame.selectAll("lollipop-circle")
 	.data(lollipopChartData)
 	.enter()
 	.append("circle")
-	.attr("cx", lollipopChartXScale(0) )
-	.attr("cy", function(d) { return lollipopChartYScale(d.text) + 12.5; })
-	.attr("r", "4")
-	.style("fill", "#17becf")
+		.classed("lollipop-circle", true)
+		.attr("cx", lollipopChartXScale(0) )
+		.attr("cy", function(d) { return lollipopChartYScale(d.text) + 12.5; })
+		.attr("r", "4")
+		.style("fill", "#17becf")
+		.attr("title", getWordCloudEntryDescription)
 
 	// Change the X coordinates of line and circle
 	frame.selectAll("circle")
