@@ -1021,9 +1021,6 @@ function renderLollipopChart(){
 	lollipopChartXScaleGraph = frame.append("g")
 	.attr("transform", "translate(0," +  canvasHeight + ")")
 	.call(d3v4.axisBottom(lollipopChartXScale))
-	//.selectAll("text")
-	//  .attr("transform", "translate(-10,0)rotate(-45)")
-	// .style("text-anchor", "end");
 	
 	// Add Y scale
 	lollipopChartYScale = d3v4.scaleBand()
@@ -1251,10 +1248,10 @@ function updateLollipopChart(eligibleEntries) {
 	lollipopChartData = lollipopChartData.slice(0, 10);
 
 	// Update X-Axis
-	/*var wordSizes = lollipopChartData.map(function(d) { return d.size; })
+	var wordSizes = lollipopChartData.map(function(d) { return d.size; })
 	var xLim = closestMultiple(Math.max(...wordSizes), 5)
 	lollipopChartXScale.domain([0, xLim])
-	lollipopChartXScaleGraph.transition().duration(1000).call(d3v4.axisBottom(lollipopChartXScale))*/
+	lollipopChartXScaleGraph.transition().duration(1000).call(d3v4.axisBottom(lollipopChartXScale))
 
 	// Update Y-Axis
 	lollipopChartYScale.domain(lollipopChartData.map(function(d) { return d.text; }))
