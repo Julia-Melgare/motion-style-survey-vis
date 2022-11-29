@@ -53,6 +53,8 @@ var wordCloudData;
 var lollipopChartSvg;
 var lollipopChartXScale;
 var lollipopChartYScale;
+var lollipopChartXScaleGraph;
+var lollipopChartYScaleGraph;
 var lollipopChartHeight;
 var lollipopChartData;
 
@@ -1015,7 +1017,7 @@ function renderLollipopChart(){
 	lollipopChartXScale = d3v4.scaleLinear()
 	.domain([0, 30])
 	.range([0, canvasWidth]);
-	frame.append("g")
+	lollipopChartXScaleGraph = frame.append("g")
 	.attr("transform", "translate(0," +  canvasHeight + ")")
 	.call(d3v4.axisBottom(lollipopChartXScale))
 	.selectAll("text")
@@ -1027,7 +1029,7 @@ function renderLollipopChart(){
 	.range([0, canvasHeight])
 	.domain(lollipopChartData.map(function(d) { return d.text; }))
 	.padding(0.1);
-  	frame.append("g")
+	lollipopChartYScaleGraph = frame.append("g")
 	.call(d3v4.axisLeft(lollipopChartYScale))
 
 	// Add lines
@@ -1157,6 +1159,7 @@ function updateDisplayedEntries(){
 	
 	updateTimeChart(eligibleEntries);
 	updateWordCloud(eligibleEntries);
+	updateLollipopChart(eligibleEntries);
 }
 
 
@@ -1222,6 +1225,42 @@ function updateWordCloud(eligibleEntries) {
 		.stop()
 		.words(updatedWordCloudData)
 		.start();
+}
+
+function updateLollipopChart(eligibleEntries) {
+	// update data
+	var wordStats = {}
+	$.each(eligibleEntries, function(i,d) {
+		var titleWords = d.title.split(" ");
+		titleWords.forEach(w => {
+			var word = w.toLowerCase().replace(/[():]/g, '')
+			if (word.length > 3 && word.toLowerCase() != "with" && word.toLowerCase() != "from"){
+				if (!wordStats[word])
+					wordStats[word] = 0;
+				wordStats[word] += 1;
+			}			
+		});	
+	});
+	wordStats = sortObject(wordStats)
+	for (const [k, v] of Object.entries(wordStats)) {
+		lollipopChartData.push({text: k, size: v})
+	}
+	lollipopChartData = lollipopChartData.slice(0, 10);
+
+	//update Y-Axis
+	lollipopChartYScale.domain(lollipopChartData.map(function(d) { return d.text; }))
+	lollipopChartYScaleGraph.transition().duration(1000).call(d3v4.axisLeft(lollipopChartYScale))
+
+	// Update line and circle positions
+	frame.selectAll("circle")
+	.transition()
+	.duration(2000)
+	.attr("cx", function(d) { return lollipopChartXScale(d.size); })
+
+	frame.selectAll("line")
+	.transition()
+	.duration(2000)
+	.attr("x1", function(d) { return lollipopChartXScale(d.size); })
 }
 
 // Checks if current entry is relevant to the current search text
