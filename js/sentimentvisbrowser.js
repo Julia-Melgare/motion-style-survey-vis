@@ -1013,8 +1013,9 @@ function renderLollipopChart(){
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	// Add X scale
+	var wordSizes = lollipopChartData.map(function(d) { return d.size; })
 	lollipopChartXScale = d3v4.scaleLinear()
-	.domain([0, 30])
+	.domain([0, closestMultiple(Math.max(...wordSizes), 5)])
 	.range([0, canvasWidth]);
 	lollipopChartXScaleGraph = frame.append("g")
 	.attr("transform", "translate(0," +  canvasHeight + ")")
@@ -1248,7 +1249,12 @@ function updateLollipopChart(eligibleEntries) {
 	}
 	lollipopChartData = lollipopChartData.slice(0, 10);
 
-	//update Y-Axis
+	// Update X-Axis
+	var wordSizes = lollipopChartData.map(function(d) { return d.size; })
+	lollipopChartXScale.domain([0, closestMultiple(Math.max(...wordSizes), 5)])
+	lollipopChartXScaleGraph.transition().duration(1000).call(d3v4.axisBottom(lollipopChartXScale))
+
+	// Update Y-Axis
 	lollipopChartYScale.domain(lollipopChartData.map(function(d) { return d.text; }))
 	lollipopChartYScaleGraph.transition().duration(1000).call(d3v4.axisLeft(lollipopChartYScale))
 
@@ -1642,7 +1648,16 @@ function sortObject(obj) {
         sorted_obj[use_key] = use_value
     })
     return(sorted_obj)
-} 
+}
+
+function closestMultiple(n, x) {
+    if (x > n)
+        return x;
+    n = n + parseInt(x / 2, 10);
+    n = n - (n % x);
+    return n;
+}
+     
 
 // Computes the coauthorship graph, etc.
 function analyseContent(){
