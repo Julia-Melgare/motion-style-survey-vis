@@ -1257,7 +1257,8 @@ function updateLollipopChart(eligibleEntries) {
 	lollipopChartXScaleGraph.transition().duration(1000).call(d3v4.axisBottom(lollipopChartXScale))
 	.selectAll("text")
 	  .attr("transform", "translate(-10,0)rotate(-45)")
-	  .style("text-anchor", "end");
+	  .style("text-anchor", "end")
+	  .style("fill", "black");
 
 	// Update Y-Axis
 	lollipopChartYScale.domain(lollipopChartData.map(function(d) { return d.text; }))
