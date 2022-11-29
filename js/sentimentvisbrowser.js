@@ -1251,14 +1251,10 @@ function updateLollipopChart(eligibleEntries) {
 	lollipopChartData = lollipopChartData.slice(0, 10);
 
 	// Update X-Axis
-	var wordSizes = lollipopChartData.map(function(d) { return d.size; })
+	/*var wordSizes = lollipopChartData.map(function(d) { return d.size; })
 	var xLim = closestMultiple(Math.max(...wordSizes), 5)
 	lollipopChartXScale.domain([0, xLim])
-	lollipopChartXScaleGraph.transition().duration(1000).call(d3v4.axisBottom(lollipopChartXScale))
-	.selectAll("text")
-	  .attr("transform", "translate(-10,0)rotate(-45)")
-	  .style("text-anchor", "end")
-	  .style("fill", "black");
+	lollipopChartXScaleGraph.transition().duration(1000).call(d3v4.axisBottom(lollipopChartXScale))*/
 
 	// Update Y-Axis
 	lollipopChartYScale.domain(lollipopChartData.map(function(d) { return d.text; }))
