@@ -1264,6 +1264,9 @@ function updateLollipopChart(eligibleEntries) {
 	var circle = d3.select("g.lollipop-chart-g").selectAll("circle").data(lollipopChartData);
 
 	circle
+	.attr("title", getWordCloudEntryDescription)
+	// Force Bootstrap tooltip update
+	.attr("data-original-title", getWordCloudEntryDescription)
 	.transition()
 	.duration(2000)
 	.attr("cx", function(d) { console.log(d.text); return lollipopChartXScale(d.size); })
@@ -1271,6 +1274,9 @@ function updateLollipopChart(eligibleEntries) {
 	var line = d3.select("g.lollipop-chart-g").selectAll(".lollipop-line").data(lollipopChartData);
 
 	line
+	.attr("title", getWordCloudEntryDescription)
+	// Force Bootstrap tooltip update
+	.attr("data-original-title", getWordCloudEntryDescription)
 	.transition()
 	.duration(2000)
 	.attr("x1", function(d) { console.log(d.text); return lollipopChartXScale(d.size); })
