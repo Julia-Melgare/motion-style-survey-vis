@@ -1252,6 +1252,8 @@ function updateLollipopChart(eligibleEntries) {
 	lollipopChartYScaleGraph.transition().duration(1000).call(d3v4.axisLeft(lollipopChartYScale))
 
 	// Update line and circle positions
+	frame = d3.select("g.lollipop-chart-g");
+
 	frame.selectAll("circle")
 	.transition()
 	.duration(2000)
